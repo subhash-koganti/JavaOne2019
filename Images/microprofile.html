@@ -1,0 +1,1191 @@
+
+
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8"><script type="text/javascript">(window.NREUM||(NREUM={})).loader_config={xpid:"VQEDVVZXDRACU1RXBgkAXlA="};window.NREUM||(NREUM={}),__nr_require=function(t,e,n){function r(n){if(!e[n]){var o=e[n]={exports:{}};t[n][0].call(o.exports,function(e){var o=t[n][1][e];return r(o||e)},o,o.exports)}return e[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<n.length;o++)r(n[o]);return r}({1:[function(t,e,n){function r(t){try{s.console&&console.log(t)}catch(e){}}var o,i=t("ee"),a=t(23),s={};try{o=localStorage.getItem("__nr_flags").split(","),console&&"function"==typeof console.log&&(s.console=!0,o.indexOf("dev")!==-1&&(s.dev=!0),o.indexOf("nr_dev")!==-1&&(s.nrDev=!0))}catch(c){}s.nrDev&&i.on("internal-error",function(t){r(t.stack)}),s.dev&&i.on("fn-err",function(t,e,n){r(n.stack)}),s.dev&&(r("NR AGENT IN DEVELOPMENT MODE"),r("flags: "+a(s,function(t,e){return t}).join(", ")))},{}],2:[function(t,e,n){function r(t,e,n,r,s){try{l?l-=1:o(s||new UncaughtException(t,e,n),!0)}catch(f){try{i("ierr",[f,c.now(),!0])}catch(d){}}return"function"==typeof u&&u.apply(this,a(arguments))}function UncaughtException(t,e,n){this.message=t||"Uncaught error with no additional information",this.sourceURL=e,this.line=n}function o(t,e){var n=e?null:c.now();i("err",[t,n])}var i=t("handle"),a=t(24),s=t("ee"),c=t("loader"),f=t("gos"),u=window.onerror,d=!1,p="nr@seenError",l=0;c.features.err=!0,t(1),window.onerror=r;try{throw new Error}catch(h){"stack"in h&&(t(13),t(12),"addEventListener"in window&&t(6),c.xhrWrappable&&t(14),d=!0)}s.on("fn-start",function(t,e,n){d&&(l+=1)}),s.on("fn-err",function(t,e,n){d&&!n[p]&&(f(n,p,function(){return!0}),this.thrown=!0,o(n))}),s.on("fn-end",function(){d&&!this.thrown&&l>0&&(l-=1)}),s.on("internal-error",function(t){i("ierr",[t,c.now(),!0])})},{}],3:[function(t,e,n){t("loader").features.ins=!0},{}],4:[function(t,e,n){function r(){j++,L=y.hash,this[u]=x.now()}function o(){j--,y.hash!==L&&i(0,!0);var t=x.now();this[h]=~~this[h]+t-this[u],this[d]=t}function i(t,e){E.emit("newURL",[""+y,e])}function a(t,e){t.on(e,function(){this[e]=x.now()})}var s="-start",c="-end",f="-body",u="fn"+s,d="fn"+c,p="cb"+s,l="cb"+c,h="jsTime",m="fetch",v="addEventListener",w=window,y=w.location,x=t("loader");if(w[v]&&x.xhrWrappable){var g=t(10),b=t(11),E=t(8),R=t(6),O=t(13),C=t(7),P=t(14),T=t(9),N=t("ee"),S=N.get("tracer");t(16),x.features.spa=!0;var L,j=0;N.on(u,r),N.on(p,r),N.on(d,o),N.on(l,o),N.buffer([u,d,"xhr-done","xhr-resolved"]),R.buffer([u]),O.buffer(["setTimeout"+c,"clearTimeout"+s,u]),P.buffer([u,"new-xhr","send-xhr"+s]),C.buffer([m+s,m+"-done",m+f+s,m+f+c]),E.buffer(["newURL"]),g.buffer([u]),b.buffer(["propagate",p,l,"executor-err","resolve"+s]),S.buffer([u,"no-"+u]),T.buffer(["new-jsonp","cb-start","jsonp-error","jsonp-end"]),a(P,"send-xhr"+s),a(N,"xhr-resolved"),a(N,"xhr-done"),a(C,m+s),a(C,m+"-done"),a(T,"new-jsonp"),a(T,"jsonp-end"),a(T,"cb-start"),E.on("pushState-end",i),E.on("replaceState-end",i),w[v]("hashchange",i,!0),w[v]("load",i,!0),w[v]("popstate",function(){i(0,j>1)},!0)}},{}],5:[function(t,e,n){function r(t){}if(window.performance&&window.performance.timing&&window.performance.getEntriesByType){var o=t("ee"),i=t("handle"),a=t(13),s=t(12),c="learResourceTimings",f="addEventListener",u="resourcetimingbufferfull",d="bstResource",p="resource",l="-start",h="-end",m="fn"+l,v="fn"+h,w="bstTimer",y="pushState",x=t("loader");x.features.stn=!0,t(8);var g=NREUM.o.EV;o.on(m,function(t,e){var n=t[0];n instanceof g&&(this.bstStart=x.now())}),o.on(v,function(t,e){var n=t[0];n instanceof g&&i("bst",[n,e,this.bstStart,x.now()])}),a.on(m,function(t,e,n){this.bstStart=x.now(),this.bstType=n}),a.on(v,function(t,e){i(w,[e,this.bstStart,x.now(),this.bstType])}),s.on(m,function(){this.bstStart=x.now()}),s.on(v,function(t,e){i(w,[e,this.bstStart,x.now(),"requestAnimationFrame"])}),o.on(y+l,function(t){this.time=x.now(),this.startPath=location.pathname+location.hash}),o.on(y+h,function(t){i("bstHist",[location.pathname+location.hash,this.startPath,this.time])}),f in window.performance&&(window.performance["c"+c]?window.performance[f](u,function(t){i(d,[window.performance.getEntriesByType(p)]),window.performance["c"+c]()},!1):window.performance[f]("webkit"+u,function(t){i(d,[window.performance.getEntriesByType(p)]),window.performance["webkitC"+c]()},!1)),document[f]("scroll",r,{passive:!0}),document[f]("keypress",r,!1),document[f]("click",r,!1)}},{}],6:[function(t,e,n){function r(t){for(var e=t;e&&!e.hasOwnProperty(u);)e=Object.getPrototypeOf(e);e&&o(e)}function o(t){s.inPlace(t,[u,d],"-",i)}function i(t,e){return t[1]}var a=t("ee").get("events"),s=t(26)(a,!0),c=t("gos"),f=XMLHttpRequest,u="addEventListener",d="removeEventListener";e.exports=a,"getPrototypeOf"in Object?(r(document),r(window),r(f.prototype)):f.prototype.hasOwnProperty(u)&&(o(window),o(f.prototype)),a.on(u+"-start",function(t,e){var n=t[1],r=c(n,"nr@wrapped",function(){function t(){if("function"==typeof n.handleEvent)return n.handleEvent.apply(n,arguments)}var e={object:t,"function":n}[typeof n];return e?s(e,"fn-",null,e.name||"anonymous"):n});this.wrapped=t[1]=r}),a.on(d+"-start",function(t){t[1]=this.wrapped||t[1]})},{}],7:[function(t,e,n){function r(t,e,n){var r=t[e];"function"==typeof r&&(t[e]=function(){var t=r.apply(this,arguments);return o.emit(n+"start",arguments,t),t.then(function(e){return o.emit(n+"end",[null,e],t),e},function(e){throw o.emit(n+"end",[e],t),e})})}var o=t("ee").get("fetch"),i=t(23);e.exports=o;var a=window,s="fetch-",c=s+"body-",f=["arrayBuffer","blob","json","text","formData"],u=a.Request,d=a.Response,p=a.fetch,l="prototype";u&&d&&p&&(i(f,function(t,e){r(u[l],e,c),r(d[l],e,c)}),r(a,"fetch",s),o.on(s+"end",function(t,e){var n=this;if(e){var r=e.headers.get("content-length");null!==r&&(n.rxSize=r),o.emit(s+"done",[null,e],n)}else o.emit(s+"done",[t],n)}))},{}],8:[function(t,e,n){var r=t("ee").get("history"),o=t(26)(r);e.exports=r;var i=window.history&&window.history.constructor&&window.history.constructor.prototype,a=window.history;i&&i.pushState&&i.replaceState&&(a=i),o.inPlace(a,["pushState","replaceState"],"-")},{}],9:[function(t,e,n){function r(t){function e(){c.emit("jsonp-end",[],p),t.removeEventListener("load",e,!1),t.removeEventListener("error",n,!1)}function n(){c.emit("jsonp-error",[],p),c.emit("jsonp-end",[],p),t.removeEventListener("load",e,!1),t.removeEventListener("error",n,!1)}var r=t&&"string"==typeof t.nodeName&&"script"===t.nodeName.toLowerCase();if(r){var o="function"==typeof t.addEventListener;if(o){var a=i(t.src);if(a){var u=s(a),d="function"==typeof u.parent[u.key];if(d){var p={};f.inPlace(u.parent,[u.key],"cb-",p),t.addEventListener("load",e,!1),t.addEventListener("error",n,!1),c.emit("new-jsonp",[t.src],p)}}}}}function o(){return"addEventListener"in window}function i(t){var e=t.match(u);return e?e[1]:null}function a(t,e){var n=t.match(p),r=n[1],o=n[3];return o?a(o,e[r]):e[r]}function s(t){var e=t.match(d);return e&&e.length>=3?{key:e[2],parent:a(e[1],window)}:{key:t,parent:window}}var c=t("ee").get("jsonp"),f=t(26)(c);if(e.exports=c,o()){var u=/[?&](?:callback|cb)=([^&#]+)/,d=/(.*)\.([^.]+)/,p=/^(\w+)(\.|$)(.*)$/,l=["appendChild","insertBefore","replaceChild"];Node&&Node.prototype&&Node.prototype.appendChild?f.inPlace(Node.prototype,l,"dom-"):(f.inPlace(HTMLElement.prototype,l,"dom-"),f.inPlace(HTMLHeadElement.prototype,l,"dom-"),f.inPlace(HTMLBodyElement.prototype,l,"dom-")),c.on("dom-start",function(t){r(t[0])})}},{}],10:[function(t,e,n){var r=t("ee").get("mutation"),o=t(26)(r),i=NREUM.o.MO;e.exports=r,i&&(window.MutationObserver=function(t){return this instanceof i?new i(o(t,"fn-")):i.apply(this,arguments)},MutationObserver.prototype=i.prototype)},{}],11:[function(t,e,n){function r(t){var e=a.context(),n=s(t,"executor-",e),r=new f(n);return a.context(r).getCtx=function(){return e},a.emit("new-promise",[r,e],e),r}function o(t,e){return e}var i=t(26),a=t("ee").get("promise"),s=i(a),c=t(23),f=NREUM.o.PR;e.exports=a,f&&(window.Promise=r,["all","race"].forEach(function(t){var e=f[t];f[t]=function(n){function r(t){return function(){a.emit("propagate",[null,!o],i),o=o||!t}}var o=!1;c(n,function(e,n){Promise.resolve(n).then(r("all"===t),r(!1))});var i=e.apply(f,arguments),s=f.resolve(i);return s}}),["resolve","reject"].forEach(function(t){var e=f[t];f[t]=function(t){var n=e.apply(f,arguments);return t!==n&&a.emit("propagate",[t,!0],n),n}}),f.prototype["catch"]=function(t){return this.then(null,t)},f.prototype=Object.create(f.prototype,{constructor:{value:r}}),c(Object.getOwnPropertyNames(f),function(t,e){try{r[e]=f[e]}catch(n){}}),a.on("executor-start",function(t){t[0]=s(t[0],"resolve-",this),t[1]=s(t[1],"resolve-",this)}),a.on("executor-err",function(t,e,n){t[1](n)}),s.inPlace(f.prototype,["then"],"then-",o),a.on("then-start",function(t,e){this.promise=e,t[0]=s(t[0],"cb-",this),t[1]=s(t[1],"cb-",this)}),a.on("then-end",function(t,e,n){this.nextPromise=n;var r=this.promise;a.emit("propagate",[r,!0],n)}),a.on("cb-end",function(t,e,n){a.emit("propagate",[n,!0],this.nextPromise)}),a.on("propagate",function(t,e,n){this.getCtx&&!e||(this.getCtx=function(){if(t instanceof Promise)var e=a.context(t);return e&&e.getCtx?e.getCtx():this})}),r.toString=function(){return""+f})},{}],12:[function(t,e,n){var r=t("ee").get("raf"),o=t(26)(r),i="equestAnimationFrame";e.exports=r,o.inPlace(window,["r"+i,"mozR"+i,"webkitR"+i,"msR"+i],"raf-"),r.on("raf-start",function(t){t[0]=o(t[0],"fn-")})},{}],13:[function(t,e,n){function r(t,e,n){t[0]=a(t[0],"fn-",null,n)}function o(t,e,n){this.method=n,this.timerDuration=isNaN(t[1])?0:+t[1],t[0]=a(t[0],"fn-",this,n)}var i=t("ee").get("timer"),a=t(26)(i),s="setTimeout",c="setInterval",f="clearTimeout",u="-start",d="-";e.exports=i,a.inPlace(window,[s,"setImmediate"],s+d),a.inPlace(window,[c],c+d),a.inPlace(window,[f,"clearImmediate"],f+d),i.on(c+u,r),i.on(s+u,o)},{}],14:[function(t,e,n){function r(t,e){d.inPlace(e,["onreadystatechange"],"fn-",s)}function o(){var t=this,e=u.context(t);t.readyState>3&&!e.resolved&&(e.resolved=!0,u.emit("xhr-resolved",[],t)),d.inPlace(t,y,"fn-",s)}function i(t){x.push(t),h&&(b?b.then(a):v?v(a):(E=-E,R.data=E))}function a(){for(var t=0;t<x.length;t++)r([],x[t]);x.length&&(x=[])}function s(t,e){return e}function c(t,e){for(var n in t)e[n]=t[n];return e}t(6);var f=t("ee"),u=f.get("xhr"),d=t(26)(u),p=NREUM.o,l=p.XHR,h=p.MO,m=p.PR,v=p.SI,w="readystatechange",y=["onload","onerror","onabort","onloadstart","onloadend","onprogress","ontimeout"],x=[];e.exports=u;var g=window.XMLHttpRequest=function(t){var e=new l(t);try{u.emit("new-xhr",[e],e),e.addEventListener(w,o,!1)}catch(n){try{u.emit("internal-error",[n])}catch(r){}}return e};if(c(l,g),g.prototype=l.prototype,d.inPlace(g.prototype,["open","send"],"-xhr-",s),u.on("send-xhr-start",function(t,e){r(t,e),i(e)}),u.on("open-xhr-start",r),h){var b=m&&m.resolve();if(!v&&!m){var E=1,R=document.createTextNode(E);new h(a).observe(R,{characterData:!0})}}else f.on("fn-end",function(t){t[0]&&t[0].type===w||a()})},{}],15:[function(t,e,n){function r(){var t=window.NREUM,e=t.info.accountID||null,n=t.info.agentID||null,r=t.info.trustKey||null,i="btoa"in window&&"function"==typeof window.btoa;if(!e||!n||!i)return null;var a={v:[0,1],d:{ty:"Browser",ac:e,ap:n,id:o.generateCatId(),tr:o.generateCatId(),ti:Date.now()}};return r&&e!==r&&(a.d.tk=r),btoa(JSON.stringify(a))}var o=t(21);e.exports={generateTraceHeader:r}},{}],16:[function(t,e,n){function r(t){var e=this.params,n=this.metrics;if(!this.ended){this.ended=!0;for(var r=0;r<l;r++)t.removeEventListener(p[r],this.listener,!1);e.aborted||(n.duration=s.now()-this.startTime,this.loadCaptureCalled||4!==t.readyState?null==e.status&&(e.status=0):a(this,t),n.cbTime=this.cbTime,d.emit("xhr-done",[t],t),c("xhr",[e,n,this.startTime]))}}function o(t,e){var n=t.responseType;if("json"===n&&null!==e)return e;var r="arraybuffer"===n||"blob"===n||"json"===n?t.response:t.responseText;return v(r)}function i(t,e){var n=f(e),r=t.params;r.host=n.hostname+":"+n.port,r.pathname=n.pathname,t.sameOrigin=n.sameOrigin}function a(t,e){t.params.status=e.status;var n=o(e,t.lastSize);if(n&&(t.metrics.rxSize=n),t.sameOrigin){var r=e.getResponseHeader("X-NewRelic-App-Data");r&&(t.params.cat=r.split(", ").pop())}t.loadCaptureCalled=!0}var s=t("loader");if(s.xhrWrappable){var c=t("handle"),f=t(17),u=t(15).generateTraceHeader,d=t("ee"),p=["load","error","abort","timeout"],l=p.length,h=t("id"),m=t(20),v=t(19),w=window.XMLHttpRequest;s.features.xhr=!0,t(14),d.on("new-xhr",function(t){var e=this;e.totalCbs=0,e.called=0,e.cbTime=0,e.end=r,e.ended=!1,e.xhrGuids={},e.lastSize=null,e.loadCaptureCalled=!1,t.addEventListener("load",function(n){a(e,t)},!1),m&&(m>34||m<10)||window.opera||t.addEventListener("progress",function(t){e.lastSize=t.loaded},!1)}),d.on("open-xhr-start",function(t){this.params={method:t[0]},i(this,t[1]),this.metrics={}}),d.on("open-xhr-end",function(t,e){"loader_config"in NREUM&&"xpid"in NREUM.loader_config&&this.sameOrigin&&e.setRequestHeader("X-NewRelic-ID",NREUM.loader_config.xpid);var n=!1;if("init"in NREUM&&"distributed_tracing"in NREUM.init&&(n=!!NREUM.init.distributed_tracing.enabled),n&&this.sameOrigin){var r=u();r&&e.setRequestHeader("newrelic",r)}}),d.on("send-xhr-start",function(t,e){var n=this.metrics,r=t[0],o=this;if(n&&r){var i=v(r);i&&(n.txSize=i)}this.startTime=s.now(),this.listener=function(t){try{"abort"!==t.type||o.loadCaptureCalled||(o.params.aborted=!0),("load"!==t.type||o.called===o.totalCbs&&(o.onloadCalled||"function"!=typeof e.onload))&&o.end(e)}catch(n){try{d.emit("internal-error",[n])}catch(r){}}};for(var a=0;a<l;a++)e.addEventListener(p[a],this.listener,!1)}),d.on("xhr-cb-time",function(t,e,n){this.cbTime+=t,e?this.onloadCalled=!0:this.called+=1,this.called!==this.totalCbs||!this.onloadCalled&&"function"==typeof n.onload||this.end(n)}),d.on("xhr-load-added",function(t,e){var n=""+h(t)+!!e;this.xhrGuids&&!this.xhrGuids[n]&&(this.xhrGuids[n]=!0,this.totalCbs+=1)}),d.on("xhr-load-removed",function(t,e){var n=""+h(t)+!!e;this.xhrGuids&&this.xhrGuids[n]&&(delete this.xhrGuids[n],this.totalCbs-=1)}),d.on("addEventListener-end",function(t,e){e instanceof w&&"load"===t[0]&&d.emit("xhr-load-added",[t[1],t[2]],e)}),d.on("removeEventListener-end",function(t,e){e instanceof w&&"load"===t[0]&&d.emit("xhr-load-removed",[t[1],t[2]],e)}),d.on("fn-start",function(t,e,n){e instanceof w&&("onload"===n&&(this.onload=!0),("load"===(t[0]&&t[0].type)||this.onload)&&(this.xhrCbStart=s.now()))}),d.on("fn-end",function(t,e){this.xhrCbStart&&d.emit("xhr-cb-time",[s.now()-this.xhrCbStart,this.onload,e],e)})}},{}],17:[function(t,e,n){e.exports=function(t){var e=document.createElement("a"),n=window.location,r={};e.href=t,r.port=e.port;var o=e.href.split("://");!r.port&&o[1]&&(r.port=o[1].split("/")[0].split("@").pop().split(":")[1]),r.port&&"0"!==r.port||(r.port="https"===o[0]?"443":"80"),r.hostname=e.hostname||n.hostname,r.pathname=e.pathname,r.protocol=o[0],"/"!==r.pathname.charAt(0)&&(r.pathname="/"+r.pathname);var i=!e.protocol||":"===e.protocol||e.protocol===n.protocol,a=e.hostname===document.domain&&e.port===n.port;return r.sameOrigin=i&&(!e.hostname||a),r}},{}],18:[function(t,e,n){function r(){}function o(t,e,n){return function(){return i(t,[f.now()].concat(s(arguments)),e?null:this,n),e?void 0:this}}var i=t("handle"),a=t(23),s=t(24),c=t("ee").get("tracer"),f=t("loader"),u=NREUM;"undefined"==typeof window.newrelic&&(newrelic=u);var d=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],p="api-",l=p+"ixn-";a(d,function(t,e){u[e]=o(p+e,!0,"api")}),u.addPageAction=o(p+"addPageAction",!0),u.setCurrentRouteName=o(p+"routeName",!0),e.exports=newrelic,u.interaction=function(){return(new r).get()};var h=r.prototype={createTracer:function(t,e){var n={},r=this,o="function"==typeof e;return i(l+"tracer",[f.now(),t,n],r),function(){if(c.emit((o?"":"no-")+"fn-start",[f.now(),r,o],n),o)try{return e.apply(this,arguments)}catch(t){throw c.emit("fn-err",[arguments,this,t],n),t}finally{c.emit("fn-end",[f.now()],n)}}}};a("actionText,setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(t,e){h[e]=o(l+e)}),newrelic.noticeError=function(t,e){"string"==typeof t&&(t=new Error(t)),i("err",[t,f.now(),!1,e])}},{}],19:[function(t,e,n){e.exports=function(t){if("string"==typeof t&&t.length)return t.length;if("object"==typeof t){if("undefined"!=typeof ArrayBuffer&&t instanceof ArrayBuffer&&t.byteLength)return t.byteLength;if("undefined"!=typeof Blob&&t instanceof Blob&&t.size)return t.size;if(!("undefined"!=typeof FormData&&t instanceof FormData))try{return JSON.stringify(t).length}catch(e){return}}}},{}],20:[function(t,e,n){var r=0,o=navigator.userAgent.match(/Firefox[\/\s](\d+\.\d+)/);o&&(r=+o[1]),e.exports=r},{}],21:[function(t,e,n){function r(){function t(){return e?15&e[n++]:16*Math.random()|0}var e=null,n=0,r=window.crypto||window.msCrypto;r&&r.getRandomValues&&(e=r.getRandomValues(new Uint8Array(31)));for(var o,i="xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx",a="",s=0;s<i.length;s++)o=i[s],"x"===o?a+=t().toString(16):"y"===o?(o=3&t()|8,a+=o.toString(16)):a+=o;return a}function o(){function t(){return e?15&e[n++]:16*Math.random()|0}var e=null,n=0,r=window.crypto||window.msCrypto;r&&r.getRandomValues&&Uint8Array&&(e=r.getRandomValues(new Uint8Array(31)));for(var o=[],i=0;i<16;i++)o.push(t().toString(16));return o.join("")}e.exports={generateUuid:r,generateCatId:o}},{}],22:[function(t,e,n){function r(t,e){if(!o)return!1;if(t!==o)return!1;if(!e)return!0;if(!i)return!1;for(var n=i.split("."),r=e.split("."),a=0;a<r.length;a++)if(r[a]!==n[a])return!1;return!0}var o=null,i=null,a=/Version\/(\S+)\s+Safari/;if(navigator.userAgent){var s=navigator.userAgent,c=s.match(a);c&&s.indexOf("Chrome")===-1&&s.indexOf("Chromium")===-1&&(o="Safari",i=c[1])}e.exports={agent:o,version:i,match:r}},{}],23:[function(t,e,n){function r(t,e){var n=[],r="",i=0;for(r in t)o.call(t,r)&&(n[i]=e(r,t[r]),i+=1);return n}var o=Object.prototype.hasOwnProperty;e.exports=r},{}],24:[function(t,e,n){function r(t,e,n){e||(e=0),"undefined"==typeof n&&(n=t?t.length:0);for(var r=-1,o=n-e||0,i=Array(o<0?0:o);++r<o;)i[r]=t[e+r];return i}e.exports=r},{}],25:[function(t,e,n){e.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],26:[function(t,e,n){function r(t){return!(t&&t instanceof Function&&t.apply&&!t[a])}var o=t("ee"),i=t(24),a="nr@original",s=Object.prototype.hasOwnProperty,c=!1;e.exports=function(t,e){function n(t,e,n,o){function nrWrapper(){var r,a,s,c;try{a=this,r=i(arguments),s="function"==typeof n?n(r,a):n||{}}catch(f){p([f,"",[r,a,o],s])}u(e+"start",[r,a,o],s);try{return c=t.apply(a,r)}catch(d){throw u(e+"err",[r,a,d],s),d}finally{u(e+"end",[r,a,c],s)}}return r(t)?t:(e||(e=""),nrWrapper[a]=t,d(t,nrWrapper),nrWrapper)}function f(t,e,o,i){o||(o="");var a,s,c,f="-"===o.charAt(0);for(c=0;c<e.length;c++)s=e[c],a=t[s],r(a)||(t[s]=n(a,f?s+o:o,i,s))}function u(n,r,o){if(!c||e){var i=c;c=!0;try{t.emit(n,r,o,e)}catch(a){p([a,n,r,o])}c=i}}function d(t,e){if(Object.defineProperty&&Object.keys)try{var n=Object.keys(t);return n.forEach(function(n){Object.defineProperty(e,n,{get:function(){return t[n]},set:function(e){return t[n]=e,e}})}),e}catch(r){p([r])}for(var o in t)s.call(t,o)&&(e[o]=t[o]);return e}function p(e){try{t.emit("internal-error",e)}catch(n){}}return t||(t=o),n.inPlace=f,n.flag=a,n}},{}],ee:[function(t,e,n){function r(){}function o(t){function e(t){return t&&t instanceof r?t:t?c(t,s,i):i()}function n(n,r,o,i){if(!p.aborted||i){t&&t(n,r,o);for(var a=e(o),s=m(n),c=s.length,f=0;f<c;f++)s[f].apply(a,r);var d=u[x[n]];return d&&d.push([g,n,r,a]),a}}function l(t,e){y[t]=m(t).concat(e)}function h(t,e){var n=y[t];if(n)for(var r=0;r<n.length;r++)n[r]===e&&n.splice(r,1)}function m(t){return y[t]||[]}function v(t){return d[t]=d[t]||o(n)}function w(t,e){f(t,function(t,n){e=e||"feature",x[n]=e,e in u||(u[e]=[])})}var y={},x={},g={on:l,addEventListener:l,removeEventListener:h,emit:n,get:v,listeners:m,context:e,buffer:w,abort:a,aborted:!1};return g}function i(){return new r}function a(){(u.api||u.feature)&&(p.aborted=!0,u=p.backlog={})}var s="nr@context",c=t("gos"),f=t(23),u={},d={},p=e.exports=o();p.backlog=u},{}],gos:[function(t,e,n){function r(t,e,n){if(o.call(t,e))return t[e];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(t,e,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return t[e]=r,r}var o=Object.prototype.hasOwnProperty;e.exports=r},{}],handle:[function(t,e,n){function r(t,e,n,r){o.buffer([t],r),o.emit(t,e,n)}var o=t("ee").get("handle");e.exports=r,r.ee=o},{}],id:[function(t,e,n){function r(t){var e=typeof t;return!t||"object"!==e&&"function"!==e?-1:t===window?0:a(t,i,function(){return o++})}var o=1,i="nr@id",a=t("gos");e.exports=r},{}],loader:[function(t,e,n){function r(){if(!E++){var t=b.info=NREUM.info,e=l.getElementsByTagName("script")[0];if(setTimeout(u.abort,3e4),!(t&&t.licenseKey&&t.applicationID&&e))return u.abort();f(x,function(e,n){t[e]||(t[e]=n)}),c("mark",["onload",a()+b.offset],null,"api");var n=l.createElement("script");n.src="https://"+t.agent,e.parentNode.insertBefore(n,e)}}function o(){"complete"===l.readyState&&i()}function i(){c("mark",["domContent",a()+b.offset],null,"api")}function a(){return R.exists&&performance.now?Math.round(performance.now()):(s=Math.max((new Date).getTime(),s))-b.offset}var s=(new Date).getTime(),c=t("handle"),f=t(23),u=t("ee"),d=t(22),p=window,l=p.document,h="addEventListener",m="attachEvent",v=p.XMLHttpRequest,w=v&&v.prototype;NREUM.o={ST:setTimeout,SI:p.setImmediate,CT:clearTimeout,XHR:v,REQ:p.Request,EV:p.Event,PR:p.Promise,MO:p.MutationObserver};var y=""+location,x={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-spa-1130.min.js"},g=v&&w&&w[h]&&!/CriOS/.test(navigator.userAgent),b=e.exports={offset:s,now:a,origin:y,features:{},xhrWrappable:g,userAgent:d};t(18),l[h]?(l[h]("DOMContentLoaded",i,!1),p[h]("load",r,!1)):(l[m]("onreadystatechange",o),p[m]("onload",r)),c("mark",["firstbyte",s],null,"api");var E=0,R=t(25)},{}]},{},["loader",2,16,5,3,4]);</script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- DO NOT REMOVE  "00fef0cf90c42f3e40921fb3370e520a" -->
+    <meta name="post_author" content="Antoine Sabot-Durand" />    <link rel="profile" href="http://gmpg.org/xfn/11">
+    <link rel="pingback" href="https://developers.redhat.com/blog/xmlrpc.php">
+    <!-- Favicon and Touch Icons -->
+        <link rel="shortcut icon" href="https://developers.redhat.com/blog/wp-content/themes/rhd-frontend-blog-theme/dist/favicon/favicon.ico" >
+    <link rel="manifest" href="https://developers.redhat.com/blog/wp-content/themes/rhd-frontend-blog-theme/dist/favicon/site.webmanifest">
+    <link rel="icon" href="https://developers.redhat.com/blog/wp-content/themes/rhd-frontend-blog-theme/dist/favicon/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" href="https://developers.redhat.com/blog/wp-content/themes/rhd-frontend-blog-theme/dist/favicon/favicon-16x16.png" sizes="16x16">
+    <link rel="mask-icon" href="https://developers.redhat.com/blog/wp-content/themes/rhd-frontend-blog-theme/dist/favicon/safari-pinned-tab.svg" color="red">
+
+    <link rel="apple-touch-icon" sizes="144x144" href="https://developers.redhat.com/blog/wp-content/themes/rhd-frontend-blog-theme/dist/favicon/ipad-retina.png" />
+    <link rel="apple-touch-icon" sizes="114x114" href="https://developers.redhat.com/blog/wp-content/themes/rhd-frontend-blog-theme/dist/favicon/iphone-retina.png" />
+    <link rel="apple-touch-icon" sizes="72x72" href="https://developers.redhat.com/blog/wp-content/themes/rhd-frontend-blog-theme/dist/favicon/ipad.png" />
+    <link rel="apple-touch-icon" href="https://developers.redhat.com/blog/wp-content/themes/rhd-frontend-blog-theme/dist/favicon/iphone.png" />
+    <link rel="apple-touch-icon" href="https://developers.redhat.com/blog/wp-content/themes/rhd-frontend-blog-theme/dist/favicon/apple-touch-icon.png">
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="https://developers.redhat.com/blog/wp-content/themes/rhd-frontend-blog-theme/dist/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://developers.redhat.com/blog/wp-content/themes/rhd-frontend-blog-theme/dist/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://developers.redhat.com/blog/wp-content/themes/rhd-frontend-blog-theme/dist/favicon/favicon-16x16.png">
+
+    <link rel="mask-icon" href="https://developers.redhat.com/blog/wp-content/themes/rhd-frontend-blog-theme/dist/favicon/safari-pinned-tab.svg" color="#5bbad5">
+
+    <!-- / End Favicon and Touch Icons -->
+
+    <title>MicroProfile Status in Version 1.3 - Red Hat Developer</title>
+
+<!-- This site is optimized with the Yoast SEO plugin v11.9 - https://yoast.com/wordpress/plugins/seo/ -->
+<meta name="description" content="The Eclipse MicroProfile project is moving fast with four releases and eight subspecs having at least two implementations each. This post provides an overview of MicroProfile 1.3, which was released on September 30th, and helps you to get started with the specification."/>
+<link rel="canonical" href="https://developers.redhat.com/blog/2018/05/07/microprofile-status-version-1-3/" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="MicroProfile Status in Version 1.3 - Red Hat Developer" />
+<meta property="og:description" content="The Eclipse MicroProfile project is moving fast with four releases and eight subspecs having at least two implementations each. This post provides an overview of MicroProfile 1.3, which was released on September 30th, and helps you to get started with the specification." />
+<meta property="og:url" content="https://developers.redhat.com/blog/2018/05/07/microprofile-status-version-1-3/" />
+<meta property="og:site_name" content="Red Hat Developer" />
+<meta property="article:publisher" content="https://www.facebook.com/RedHatDeveloperProgram/" />
+<meta property="article:tag" content="CDI" />
+<meta property="article:tag" content="JAX-RS" />
+<meta property="article:tag" content="JSON-P" />
+<meta property="article:tag" content="JWT Auth" />
+<meta property="article:tag" content="MicroProfile" />
+<meta property="article:tag" content="microservices" />
+<meta property="article:tag" content="OpenAPI" />
+<meta property="article:tag" content="OpenTracing" />
+<meta property="article:tag" content="thorntail" />
+<meta property="article:tag" content="wildfly swarm" />
+<meta property="article:section" content="Java" />
+<meta property="article:published_time" content="2018-05-07T11:00:07+00:00" />
+<meta property="article:modified_time" content="2018-10-17T17:38:42+00:00" />
+<meta property="og:updated_time" content="2018-10-17T17:38:42+00:00" />
+<meta property="og:image" content="https://developers.redhat.com/blog/wp-content/uploads/2017/11/microprofile-logo.png" />
+<meta property="og:image:secure_url" content="https://developers.redhat.com/blog/wp-content/uploads/2017/11/microprofile-logo.png" />
+<meta property="og:image:width" content="714" />
+<meta property="og:image:height" content="252" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:description" content="The Eclipse MicroProfile project is moving fast with four releases and eight subspecs having at least two implementations each. This post provides an overview of MicroProfile 1.3, which was released on September 30th, and helps you to get started with the specification." />
+<meta name="twitter:title" content="MicroProfile Status in Version 1.3 - Red Hat Developer" />
+<meta name="twitter:site" content="@rhdevelopers" />
+<meta name="twitter:image" content="https://developers.redhat.com/blog/wp-content/uploads/2017/11/microprofile-logo.png" />
+<meta name="twitter:creator" content="@antoine_sd" />
+<script type='application/ld+json' class='yoast-schema-graph yoast-schema-graph--main'>{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://developers.redhat.com/blog/#organization","name":"Red Hat","url":"https://developers.redhat.com/blog/","sameAs":["https://www.facebook.com/RedHatDeveloperProgram/","https://twitter.com/rhdevelopers"],"logo":{"@type":"ImageObject","@id":"https://developers.redhat.com/blog/#logo","url":"https://developers.redhat.com/blog/wp-content/uploads/2017/09/RHD-logo.jpg","width":900,"height":300,"caption":"Red Hat"},"image":{"@id":"https://developers.redhat.com/blog/#logo"}},{"@type":"WebSite","@id":"https://developers.redhat.com/blog/#website","url":"https://developers.redhat.com/blog/","name":"Red Hat Developer","publisher":{"@id":"https://developers.redhat.com/blog/#organization"},"potentialAction":{"@type":"SearchAction","target":"https://developers.redhat.com/blog/?s={search_term_string}","query-input":"required name=search_term_string"}},{"@type":"ImageObject","@id":"https://developers.redhat.com/blog/2018/05/07/microprofile-status-version-1-3/#primaryimage","url":"https://developers.redhat.com/blog/wp-content/uploads/2017/11/microprofile-logo.png","width":714,"height":252},{"@type":"WebPage","@id":"https://developers.redhat.com/blog/2018/05/07/microprofile-status-version-1-3/#webpage","url":"https://developers.redhat.com/blog/2018/05/07/microprofile-status-version-1-3/","inLanguage":"en-US","name":"MicroProfile Status in Version 1.3 - Red Hat Developer","isPartOf":{"@id":"https://developers.redhat.com/blog/#website"},"primaryImageOfPage":{"@id":"https://developers.redhat.com/blog/2018/05/07/microprofile-status-version-1-3/#primaryimage"},"datePublished":"2018-05-07T11:00:07+00:00","dateModified":"2018-10-17T17:38:42+00:00","description":"The Eclipse MicroProfile project is moving fast with four releases and eight subspecs having at least two implementations each. This post provides an overview of MicroProfile 1.3, which was released on September 30th, and helps you to get started with the specification."},{"@type":"Article","@id":"https://developers.redhat.com/blog/2018/05/07/microprofile-status-version-1-3/#article","isPartOf":{"@id":"https://developers.redhat.com/blog/2018/05/07/microprofile-status-version-1-3/#webpage"},"author":{"@id":"https://developers.redhat.com/blog/#/schema/person/dc5058059cb68cf283b4586d14d38bf6"},"headline":"MicroProfile Status in Version 1.3","datePublished":"2018-05-07T11:00:07+00:00","dateModified":"2018-10-17T17:38:42+00:00","commentCount":0,"mainEntityOfPage":{"@id":"https://developers.redhat.com/blog/2018/05/07/microprofile-status-version-1-3/#webpage"},"publisher":{"@id":"https://developers.redhat.com/blog/#organization"},"image":{"@id":"https://developers.redhat.com/blog/2018/05/07/microprofile-status-version-1-3/#primaryimage"},"keywords":"CDI,JAX-RS,JSON-P,JWT Auth,MicroProfile,microservices,OpenAPI,OpenTracing,thorntail,wildfly swarm","articleSection":"CI/CD,Community,Java,Microservices,Modern App Dev"},{"@type":["Person"],"@id":"https://developers.redhat.com/blog/#/schema/person/dc5058059cb68cf283b4586d14d38bf6","name":"Antoine Sabot-Durand","image":{"@type":"ImageObject","@id":"https://developers.redhat.com/blog/#authorlogo","url":"https://secure.gravatar.com/avatar/41b05e3d7779ddf262790a7609cb0ada?s=96&d=mm&r=g","caption":"Antoine Sabot-Durand"},"description":"Java Champion, senior software Engineer at Red Hat. CDI spec lead and Microprofile contributor. Also a speaker to various conferences like Java One, Devoxx or JDK.io","sameAs":["https://twitter.com/antoine_sd"]}]}</script>
+<!-- / Yoast SEO plugin. -->
+
+<link rel='dns-prefetch' href='//www.google.com' />
+<link rel='dns-prefetch' href='//s0.wp.com' />
+<link rel='dns-prefetch' href='//secure.gravatar.com' />
+<link rel='dns-prefetch' href='//static.jboss.org' />
+<link rel='dns-prefetch' href='//issues.jboss.org' />
+<link rel='dns-prefetch' href='//s.w.org' />
+<link rel="alternate" type="application/rss+xml" title="Red Hat Developer &raquo; MicroProfile Status in Version 1.3 Comments Feed" href="https://developers.redhat.com/blog/2018/05/07/microprofile-status-version-1-3/feed/" />
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/11.2.0\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/11.2.0\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/developers.redhat.com\/blog\/wp-includes\/js\/wp-emoji-release.min.js?ver=5.1.2"}};
+			!function(a,b,c){function d(a,b){var c=String.fromCharCode;l.clearRect(0,0,k.width,k.height),l.fillText(c.apply(this,a),0,0);var d=k.toDataURL();l.clearRect(0,0,k.width,k.height),l.fillText(c.apply(this,b),0,0);var e=k.toDataURL();return d===e}function e(a){var b;if(!l||!l.fillText)return!1;switch(l.textBaseline="top",l.font="600 32px Arial",a){case"flag":return!(b=d([55356,56826,55356,56819],[55356,56826,8203,55356,56819]))&&(b=d([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]),!b);case"emoji":return b=d([55358,56760,9792,65039],[55358,56760,8203,9792,65039]),!b}return!1}function f(a){var c=b.createElement("script");c.src=a,c.defer=c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var g,h,i,j,k=b.createElement("canvas"),l=k.getContext&&k.getContext("2d");for(j=Array("flag","emoji"),c.supports={everything:!0,everythingExceptFlag:!0},i=0;i<j.length;i++)c.supports[j[i]]=e(j[i]),c.supports.everything=c.supports.everything&&c.supports[j[i]],"flag"!==j[i]&&(c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&c.supports[j[i]]);c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&!c.supports.flag,c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.everything||(h=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",h,!1),a.addEventListener("load",h,!1)):(a.attachEvent("onload",h),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),g=c.source||{},g.concatemoji?f(g.concatemoji):g.wpemoji&&g.twemoji&&(f(g.twemoji),f(g.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+	<link rel='stylesheet' id='selection-sharer-css'  href='https://developers.redhat.com/blog/wp-content/plugins/selection-sharer/css/selection-sharer.css?ver=0.1' type='text/css' media='all' />
+<link rel='stylesheet' id='wp-block-library-css'  href='https://developers.redhat.com/blog/wp-includes/css/dist/block-library/style.min.css?ver=5.1.2' type='text/css' media='all' />
+<link rel='stylesheet' id='gdpr-css'  href='https://developers.redhat.com/blog/wp-content/plugins/gdpr/assets/css/gdpr-public.css?ver=2.1.0' type='text/css' media='all' />
+<link rel='stylesheet' id='rh-jetpack-css-css'  href='https://developers.redhat.com/blog/wp-content/plugins/jetpack/css/jetpack.css?ver=5.7.1' type='text/css' media='all' />
+<link rel='stylesheet' id='rh-src-blog-child-css-css'  href='https://developers.redhat.com/blog/wp-content/themes/rhd-frontend-blog-theme/dist/css/redhatblog.css' type='text/css' media='all' />
+<link rel='stylesheet' id='addtoany-css'  href='https://developers.redhat.com/blog/wp-content/plugins/add-to-any/addtoany.min.css?ver=1.15' type='text/css' media='all' />
+<link rel='stylesheet' id='wp-featherlight-css'  href='https://developers.redhat.com/blog/wp-content/plugins/wp-featherlight/css/wp-featherlight.min.css?ver=1.3.0' type='text/css' media='all' />
+<link rel='stylesheet' id='jetpack_css-css'  href='https://developers.redhat.com/blog/wp-content/plugins/jetpack/css/jetpack.css?ver=7.4' type='text/css' media='all' />
+<script type='text/javascript' src='https://developers.redhat.com/blog/wp-includes/js/jquery/jquery.js?ver=1.12.4'></script>
+<script type='text/javascript' src='https://developers.redhat.com/blog/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.4.1'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var related_posts_js_options = {"post_heading":"h4"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://developers.redhat.com/blog/wp-content/plugins/jetpack/_inc/build/related-posts/related-posts.min.js?ver=20190204'></script>
+<script type='text/javascript' src='https://developers.redhat.com/blog/wp-content/plugins/add-to-any/addtoany.min.js?ver=1.1'></script>
+<script type='text/javascript' src='https://www.google.com/recaptcha/api.js?ver=5.1.2'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var GDPR = {"ajaxurl":"https:\/\/developers.redhat.com\/blog\/wp-admin\/admin-ajax.php","logouturl":"","i18n":{"aborting":"Aborting","logging_out":"You are being logged out.","continue":"Continue","cancel":"Cancel","ok":"OK","close_account":"Close your account?","close_account_warning":"Your account will be closed and all data will be permanently deleted and cannot be recovered. Are you sure?","are_you_sure":"Are you sure?","policy_disagree":"By disagreeing you will no longer have access to our site and will be logged out."},"is_user_logged_in":"","refresh":"1"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://developers.redhat.com/blog/wp-content/plugins/gdpr/assets/js/gdpr-public.js?ver=2.1.0'></script>
+<script type='text/javascript' src='//static.jboss.org/rhd/1.2-build-1865/javascripts/vendor/modernizr-custom.js?ver=5.1.2'></script>
+<link rel='https://api.w.org/' href='https://developers.redhat.com/blog/wp-json/' />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://developers.redhat.com/blog/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://developers.redhat.com/blog/wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 5.1.2" />
+<link rel='shortlink' href='https://wp.me/p8e0as-1QNa' />
+<link rel="alternate" type="application/json+oembed" href="https://developers.redhat.com/blog/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fdevelopers.redhat.com%2Fblog%2F2018%2F05%2F07%2Fmicroprofile-status-version-1-3%2F" />
+<link rel="alternate" type="text/xml+oembed" href="https://developers.redhat.com/blog/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fdevelopers.redhat.com%2Fblog%2F2018%2F05%2F07%2Fmicroprofile-status-version-1-3%2F&#038;format=xml" />
+
+<script data-cfasync="false">
+window.a2a_config=window.a2a_config||{};a2a_config.callbacks=[];a2a_config.overlays=[];a2a_config.templates={};
+(function(d,s,a,b){a=d.createElement(s);b=d.getElementsByTagName(s)[0];a.async=1;a.src="https://static.addtoany.com/menu/page.js";b.parentNode.insertBefore(a,b);})(document,"script");
+</script>
+    <script type="text/javascript">
+    var digitalData = {"page":{"attributes":{"queryParameters":""},"pageInfo":{"breadCrumbs":[],"cms":"RHD CMS 8","destinationURL":"https:\/\/developers.redhat.com\/blog\/2018\/05\/07\/microprofile-status-version-1-3\/","errorMessage":"","errorType":"","language":"en_US","pageID":"441264","contentID":"441264","pageName":"MicroProfile Status in Version 1.3","referringDomain":"","referringURL":"https:\/\/www.google.com\/","syndicationIds":[],"sysEnv":"","title":"MicroProfile Status in Version 1.3"},"category":{"contentType":"blog","contentSubType":"single-post","keyPage":false,"keyPageType":"","pageType":"single-post","primaryCategory":"blog","subCategories":["2018","05","7"]}},"user":[{"profile":[{"profileInfo":{"accountID":"","daysSinceLastPurchase":"","daysSinceRegistration":"","eloquaGUID":"POPULATE ELOQUA ID","keyCloakID":"","loggedIn":false,"profileID":"","registered":false,"socialAccountsLinked":[],"subscriptionFrequency":"","subscriptionLevel":"","userAgent":""}}]}]};
+    var ddYear  = 2018;
+    var ddMonth = 05;
+    var ddDay   = 7;
+    
+    relURL = window.location.href.replace(/https?:\/\//,"").replace("developers.redhat.com/blog/2018/05/07","").replace(/\/$/,"");
+     ( function( w, d, dd, undefined ) {
+      var categoryObj = getCategories();
+    
+
+      function getCookie( name ) {
+        var value = "; " + document.cookie;
+        var parts = value.split( "; " + name + "=" );
+        if ( parts.length == 2 ) {
+          return parts.pop().split( ";" ).shift();
+        }
+      }
+
+      function getQueryParams() {
+        return relURL.split('?')[1] ? relURL.split('?')[1].replace(/=/g,':').split('&') : "";
+      }
+
+      
+      function getCategories() {
+        categories = { primaryCategory: "blog", subCategories: [ddYear,ddMonth,ddDay] };  
+        return categories;
+      }
+
+      function getPageName() {
+        var splitURL = relURL.split("?")[0].split("#")[0].split(/\//),
+          page = splitURL.pop();
+        return page.length > 0 ? page : "blog home";
+      }
+
+      dd.page.attributes.queryParameters = getQueryParams();
+      dd.page.category.primaryCategory = "blog";
+      dd.page.category.subCategories = categoryObj.subCategories;
+      dd.page.pageInfo.destinationURL = window.location.href;
+      dd.page.pageInfo.pageName = getPageName();
+      dd.page.pageInfo.breadCrumbs = [categoryObj.primaryCategory, categoryObj.subCategories[0] || ""];
+
+      var registered = getCookie("rhd_member");
+      dd.user[0].profile[0].profileInfo.registered = registered ? true : false;
+
+      if ( d.referrer ) {
+        var a = d.createElement( "a" );
+        a.href = d.referrer;
+
+        dd.page.pageInfo.referringDomain = a.hostname;
+        dd.page.pageInfo.referringURL = a.href;
+      }
+
+      dd.page.pageInfo.sysEnv = ( w.innerWidth <= 768 ) ? "tablet" : "desktop";
+
+      var elqGUID = getCookie( "rh_elqCustomerGUID" );
+      if ( elqGUID ) {
+        dd.user[ 0 ].profile[ 0 ].profileInfo.eloquaGUID = elqGUID;
+      }
+
+    } )( window, document, digitalData );
+    </script>
+    <script id="dpal" src="//www.redhat.com/dtm.js"></script>
+<link rel='dns-prefetch' href='//v0.wordpress.com'/>
+<link rel='dns-prefetch' href='//jetpack.wordpress.com'/>
+<link rel='dns-prefetch' href='//s0.wp.com'/>
+<link rel='dns-prefetch' href='//s1.wp.com'/>
+<link rel='dns-prefetch' href='//s2.wp.com'/>
+<link rel='dns-prefetch' href='//public-api.wordpress.com'/>
+<link rel='dns-prefetch' href='//0.gravatar.com'/>
+<link rel='dns-prefetch' href='//1.gravatar.com'/>
+<link rel='dns-prefetch' href='//2.gravatar.com'/>
+<meta property="fb:app_id" content="1650560165253145"><style type="text/css" id="syntaxhighlighteranchor"></style>
+			<style type="text/css" id="wp-custom-css">
+				.author-line time.updated {
+	display: none;
+}
+pre {
+	font-family: "Courier New", Courier, monospace;
+}			</style>
+		
+    <script type="text/javascript">
+        dataLayer = [{'channel' : 'developer'}];
+        (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+                new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-NJWS5L');
+    </script>
+
+    <script type="text/javascript">
+        var $ = jQuery.noConflict();
+    </script>
+
+
+</head>
+
+<body>
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NJWS5L" height="0" width="0"></iframe></noscript>
+
+<header role="banner">
+    <div class="rhd-masthead">
+        <div>
+
+            <div class="rh-universal-header">
+                <nav class="rh-nav-universal" aria-label="Red Hat Global Navigation">
+                    <a class="rh-logo-wrapper" href="https://www.redhat.com/" title="Red Hat Home page">
+                        <img width="135" height="43" class="rh-header-logo" alt="Red Hat Logo" src="https://developers.redhat.com/themes/custom/rhdp/images/branding/RHLogo_white.svg">
+                    </a>
+
+                    <ul class="rhd-menu rh-nav-universal-list">
+                        <li class="menu-item rh-nav-universal-link">
+                            <a href="https://access.redhat.com/" title="Red Hat Customer Portal">Customer Portal</a>
+                        </li>
+                        <li class="menu-item rh-nav-universal-link">
+                            <a href="https://developers.redhat.com" title="Red Hat Developer" data-drupal-link-system-path="<front>">Developer</a>
+                        </li>
+                        <li class="menu-item rh-nav-universal-link">
+                            <a href="https://che.openshift.io/" title="Eclipse Che is a developer workspace server and cloud IDE built for teams and organizations.">Hosted IDE</a>
+                        </li>
+                        <li class="menu-item rh-nav-universal-link">
+                            <a href="https://www.openshift.com/" title="Red Hat OpenShift Container Platform">OpenShift</a>
+                        </li>
+                        <li class="menu-item rh-nav-universal-link">
+                            <a href="https://www.redhat.com/en/partners" title="Partner with Red Hat">Partners</a>
+                        </li>
+                        <li class="menu-item rh-nav-universal-link">
+                            <a href="https://www.redhat.com/en/store" title="Red Hat Store">Store</a>
+                        </li>
+                    </ul>
+
+                    <ul class="rhd-menu rh-universal-login">
+                        <li class="login"><span class="icon"><svg class="svg-inline--fa fa-user fa-w-16" aria-hidden="true" data-prefix="fas" data-icon="user" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg=""><path fill="currentColor" d="M256 0c88.366 0 160 71.634 160 160s-71.634 160-160 160S96 248.366 96 160 167.634 0 256 0zm183.283 333.821l-71.313-17.828c-74.923 53.89-165.738 41.864-223.94 0l-71.313 17.828C29.981 344.505 0 382.903 0 426.955V464c0 26.51 21.49 48 48 48h416c26.51 0 48-21.49 48-48v-37.045c0-44.052-29.981-82.45-72.717-93.134z"></path></svg><!-- <i class="fas fa-user"></i> --></span><a>Log In</a></li>
+                        <li class="logged-in" style="display: none;"><a class="logged-in-name" href="#"></a></li>
+                        <li class="logged-in" style="display: none;"><a class="logout" href="#">Log Out</a></li>
+                    </ul>
+
+                </nav>
+            </div>
+
+        </div>
+
+        <div class="container">
+            <div class="rhd-masthead-inner">
+                <div class="rhd-header">
+                    <a href="https://developers.redhat.com" title="Cloud Training for Developers and Developer Tools" rel="home" class="rhd-header-logo" id="home-link">
+                        <img src="https://developers.redhat.com/themes/custom/rhdp/logo.svg" title="Cloud Training for Developers and Developer Tools" />
+                    </a>
+                    <nav role="navigation" aria-labelledby="block-rhdnavigation-menu" id="block-rhdnavigation" data-block-plugin-id="system_menu_block:rhd-navigation" class="block block-menu navigation rhd-nav-fixed menu--rhd-navigation">
+
+                        <h2 class="visually-hidden" id="block-rhdnavigation-menu">RHD Navigation</h2>
+                        <ul class="rhd-menu">
+                            <li class="menu-item rhd-header-link">
+                                <a href="https://developers.redhat.com/build/" class="">
+                                    <span class="title">Build</span>
+                                    <span class="description">Link to resources for building applications with open source software</span>
+                                </a>
+                            </li>
+                            <li class="menu-item rhd-header-link">
+                                <a href="https://developers.redhat.com/tools/" class="">
+                                    <span class="title">Tools</span>
+                                    <span class="description">Link to developer tools for cloud development</span>
+                                </a>
+                            </li>
+                            <li class="menu-item rhd-header-link">
+                                <a href="https://developers.redhat.com/events/" class="">
+                                    <span class="title">Events</span>
+                                    <span class="description">Link to Red Hat Developer Events</span>
+                                </a>
+                            </li>
+                            <li class="menu-item rhd-header-link">
+                                <a href="https://developers.redhat.com/training/" class="">
+                                    <span class="title">Training</span>
+                                    <span class="description">Link to Red Hat Developer Training Content</span>
+                                </a>
+                            </li>
+                            <li class="menu-item rhd-header-link">
+                                <a href="https://developers.redhat.com/products/" class="">
+                                    <span class="title">Products</span>
+                                    <span class="description">Link to Red Hat Developer Products</span>
+                                </a>
+                            </li>
+                            <li class="rhd-nav-search">
+                                <div class="rhd-search-wrapper">
+                                    <form class="search-bar" accept-charset="utf-8" action="https://developers.redhat.com/search/" method="get" role="search" type="submit">
+                                        <input class="user-search" type="text" placeholder="Search" id="search_list_text" name="t" maxlength="128" required=""><button type="submit" id="search-button"><svg class="svg-inline--fa fa-search fa-w-16" aria-hidden="true" data-prefix="far" data-icon="search" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg=""><path fill="currentColor" d="M508.5 468.9L387.1 347.5c-2.3-2.3-5.3-3.5-8.5-3.5h-13.2c31.5-36.5 50.6-84 50.6-136C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c52 0 99.5-19.1 136-50.6v13.2c0 3.2 1.3 6.2 3.5 8.5l121.4 121.4c4.7 4.7 12.3 4.7 17 0l22.6-22.6c4.7-4.7 4.7-12.3 0-17zM208 368c-88.4 0-160-71.6-160-160S119.6 48 208 48s160 71.6 160 160-71.6 160-160 160z"></path></svg><!-- <i class="far fa-search"></i> --></button>
+                                    </form>
+                                </div>
+                                <button class="rhd-search-toggle rhd-search-toggle-open"><span class="open-icon"><svg class="svg-inline--fa fa-search fa-w-16" aria-hidden="true" data-prefix="far" data-icon="search" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg=""><path fill="currentColor" d="M508.5 468.9L387.1 347.5c-2.3-2.3-5.3-3.5-8.5-3.5h-13.2c31.5-36.5 50.6-84 50.6-136C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c52 0 99.5-19.1 136-50.6v13.2c0 3.2 1.3 6.2 3.5 8.5l121.4 121.4c4.7 4.7 12.3 4.7 17 0l22.6-22.6c4.7-4.7 4.7-12.3 0-17zM208 368c-88.4 0-160-71.6-160-160S119.6 48 208 48s160 71.6 160 160-71.6 160-160 160z"></path></svg><!-- <i class="far fa-search"></i> --></span></button>
+                                <button class="rhd-search-toggle rhd-search-toggle-close"><span class="close-icon"><svg class="svg-inline--fa fa-times fa-w-12" aria-hidden="true" data-prefix="fal" data-icon="times" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" data-fa-i2svg=""><path fill="currentColor" d="M217.5 256l137.2-137.2c4.7-4.7 4.7-12.3 0-17l-8.5-8.5c-4.7-4.7-12.3-4.7-17 0L192 230.5 54.8 93.4c-4.7-4.7-12.3-4.7-17 0l-8.5 8.5c-4.7 4.7-4.7 12.3 0 17L166.5 256 29.4 393.2c-4.7 4.7-4.7 12.3 0 17l8.5 8.5c4.7 4.7 12.3 4.7 17 0L192 281.5l137.2 137.2c4.7 4.7 12.3 4.7 17 0l8.5-8.5c4.7-4.7 4.7-12.3 0-17L217.5 256z"></path></svg><!-- <i class="fal fa-times"></i> --></span></button>
+                            </li>
+                        </ul>
+
+
+                    </nav>
+                </div>
+
+                <div class="region region-mobile-tray rhd-mobile-tray">
+                    <div class="rhd-mobile-tray-inner">
+                        <button class="menu-toggle">Close<span class="icon"><svg class="svg-inline--fa fa-times-circle fa-w-16" aria-hidden="true" data-prefix="far" data-icon="times-circle" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg=""><path fill="currentColor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 448c-110.5 0-200-89.5-200-200S145.5 56 256 56s200 89.5 200 200-89.5 200-200 200zm101.8-262.2L295.6 256l62.2 62.2c4.7 4.7 4.7 12.3 0 17l-22.6 22.6c-4.7 4.7-12.3 4.7-17 0L256 295.6l-62.2 62.2c-4.7 4.7-12.3 4.7-17 0l-22.6-22.6c-4.7-4.7-4.7-12.3 0-17l62.2-62.2-62.2-62.2c-4.7-4.7-4.7-12.3 0-17l22.6-22.6c4.7-4.7 12.3-4.7 17 0l62.2 62.2 62.2-62.2c4.7-4.7 12.3-4.7 17 0l22.6 22.6c4.7 4.7 4.7 12.3 0 17z"></path></svg><!-- <i class="far fa-times-circle"></i> --></span></button>
+                        <nav role="navigation" aria-labelledby="block-rhdp-account-menu-menu" id="block-rhdp-account-menu" data-block-plugin-id="system_menu_block:account" class="block block-menu navigation menu--account"><h2 class="visually-hidden" id="block-rhdp-account-menu-menu">User account menu</h2>
+
+                            <ul class="rhd-menu rh-universal-login">
+                                <li class="menu-item">
+                                    <span class="icon"><svg class="svg-inline--fa fa-user fa-w-16" aria-hidden="true" data-prefix="fas" data-icon="user" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg=""><path fill="currentColor" d="M256 0c88.366 0 160 71.634 160 160s-71.634 160-160 160S96 248.366 96 160 167.634 0 256 0zm183.283 333.821l-71.313-17.828c-74.923 53.89-165.738 41.864-223.94 0l-71.313 17.828C29.981 344.505 0 382.903 0 426.955V464c0 26.51 21.49 48 48 48h416c26.51 0 48-21.49 48-48v-37.045c0-44.052-29.981-82.45-72.717-93.134z"></path></svg><!-- <i class="fas fa-user"></i> --></span><a href="https://developers.redhat.com/login/" data-drupal-link-system-path="user/login">Log in</a>
+                                </li>
+                            </ul></nav><div id="block-rhdsearchblock-mobile" data-block-plugin-id="rhd_search_block" class="block block-redhat-developers block-rhd-search-block">
+
+
+                            <div class="rhd-search-wrapper">
+                                <form class="search-bar" accept-charset="utf-8" action="https://developers.redhat.com/search/" method="get" role="search" type="submit">
+                                    <input class="user-search" type="text" placeholder="Enter your search term" id="search_list_text" name="t" maxlength="128" required=""><button type="submit" id="search-button"><svg class="svg-inline--fa fa-search fa-w-16" aria-hidden="true" data-prefix="far" data-icon="search" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg=""><path fill="currentColor" d="M508.5 468.9L387.1 347.5c-2.3-2.3-5.3-3.5-8.5-3.5h-13.2c31.5-36.5 50.6-84 50.6-136C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c52 0 99.5-19.1 136-50.6v13.2c0 3.2 1.3 6.2 3.5 8.5l121.4 121.4c4.7 4.7 12.3 4.7 17 0l22.6-22.6c4.7-4.7 4.7-12.3 0-17zM208 368c-88.4 0-160-71.6-160-160S119.6 48 208 48s160 71.6 160 160-71.6 160-160 160z"></path></svg><!-- <i class="far fa-search"></i> --></button>
+                                </form>
+                            </div>
+
+                        </div>
+                        <nav role="navigation" aria-labelledby="block-rhdnavigation-mobile-menu" id="block-rhdnavigation-mobile" data-block-plugin-id="system_menu_block:rhd-navigation" class="block block-menu navigation rhd-nav-mobile menu--rhd-navigation"><h2 class="visually-hidden" id="block-rhdnavigation-mobile-menu">RHD Navigation</h2>
+
+                            <ul class="rhd-menu">
+                                <li class="menu-item rhd-header-link">
+                                    <a href="https://developers.redhat.com/build/" >
+                                        <span class="title">Build</span>
+                                        <span class="description">Link to resources for building applications with open source software</span>
+                                    </a>
+                                </li>
+                                <li class="menu-item rhd-header-link">
+                                    <a href="https://developers.redhat.com/tools/" >
+                                        <span class="title">Tools</span>
+                                        <span class="description">Link to developer tools for cloud development</span>
+                                    </a>
+                                </li>
+                                <li class="menu-item menu-item--active-trail rhd-header-link">
+                                    <a href="https://developers.redhat.com/events/" class="is-active">
+                                        <span class="title">Events</span>
+                                        <span class="description">Link to Red Hat Developer Events</span>
+                                    </a>
+                                </li>
+                                <li class="menu-item rhd-header-link">
+                                    <a href="https://developers.redhat.com/training/" >
+                                        <span class="title">Training</span>
+                                        <span class="description">Link to Red Hat Developer Training Content</span>
+                                    </a>
+                                </li>
+                                <li class="menu-item rhd-header-link">
+                                    <a href="https://developers.redhat.com/products/" >
+                                        <span class="title">Products</span>
+                                        <span class="description">Link to Red Hat Developer Products</span>
+                                    </a>
+                                </li>
+                                <li class="rhd-nav-search">
+                                    <div class="rhd-search-wrapper">
+                                        <form class="search-bar" accept-charset="utf-8" action="https://developers.redhat.com/search/" method="get" role="search" type="submit">
+                                            <input class="user-search" type="text" placeholder="Search" id="search_list_text" name="t" maxlength="128" required=""><button type="submit" id="search-button"><svg class="svg-inline--fa fa-search fa-w-16" aria-hidden="true" data-prefix="far" data-icon="search" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg=""><path fill="currentColor" d="M508.5 468.9L387.1 347.5c-2.3-2.3-5.3-3.5-8.5-3.5h-13.2c31.5-36.5 50.6-84 50.6-136C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c52 0 99.5-19.1 136-50.6v13.2c0 3.2 1.3 6.2 3.5 8.5l121.4 121.4c4.7 4.7 12.3 4.7 17 0l22.6-22.6c4.7-4.7 4.7-12.3 0-17zM208 368c-88.4 0-160-71.6-160-160S119.6 48 208 48s160 71.6 160 160-71.6 160-160 160z"></path></svg><!-- <i class="far fa-search"></i> --></button>
+                                        </form>
+                                    </div>
+                                    <button class="rhd-search-toggle"><span class="open-icon"><svg class="svg-inline--fa fa-search fa-w-16" aria-hidden="true" data-prefix="far" data-icon="search" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg=""><path fill="currentColor" d="M508.5 468.9L387.1 347.5c-2.3-2.3-5.3-3.5-8.5-3.5h-13.2c31.5-36.5 50.6-84 50.6-136C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c52 0 99.5-19.1 136-50.6v13.2c0 3.2 1.3 6.2 3.5 8.5l121.4 121.4c4.7 4.7 12.3 4.7 17 0l22.6-22.6c4.7-4.7 4.7-12.3 0-17zM208 368c-88.4 0-160-71.6-160-160S119.6 48 208 48s160 71.6 160 160-71.6 160-160 160z"></path></svg><!-- <i class="far fa-search"></i> --></span></button>
+                                </li>
+                            </ul></nav>
+                    </div>
+                </div>
+
+                <div class="menu-toggle-wrapper">
+                    <button class="menu-toggle">Menu<span class="icon"><svg class="svg-inline--fa fa-bars fa-w-14" aria-hidden="true" data-prefix="far" data-icon="bars" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg><!-- <i class="far fa-bars"></i> --></span></button>
+                </div>
+            </div>
+        </div>
+        <div class="region region-rhd-post-header">
+            <nav role="navigation" aria-labelledby="block-topicnavigation-menu" id="block-topicnavigation" data-block-plugin-id="system_menu_block:topics-menu" class="block block-menu navigation rhd-topic-header menu--topics-menu">
+                <h2 class="visually-hidden" id="block-topicnavigation-menu">Topic navigation</h2>
+
+                <div class="container">
+                    <div class="rhd-topic-header-inner">
+                        <ul class="rhd-menu rhd-topic-nav">
+
+                            <li class="menu-item">
+                                <a href="https://developers.redhat.com/topics/service-mesh/" title="Istio coordinates microservices on Kubernetes in a service mesh with the powerful monitoring and management tool." data-drupal-link-system-path="node/204655" tabindex="0">Istio</a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="https://developers.redhat.com/topics/kubernetes/" title="Learn how Kubernetes, a powerful open-source tool, helps you manage components across containers in any environment." data-drupal-link-system-path="node/204675" tabindex="-1">Kubernetes</a>
+                            </li>
+
+                            <li class="menu-item">
+                                <a href="https://developers.redhat.com/topics/microservices/" title="Microservices and microservice architecture is the new standard approach to building applications as independent services." data-drupal-link-system-path="node/204665" tabindex="-1">Microservices</a>
+                            </li>
+
+                            <li class="menu-item">
+                                <a href="https://developers.redhat.com/topics/devops/" title="DevOps involves the combination of cultural change, process automation, and tools to improve your time-to-market." data-drupal-link-system-path="node/204635" tabindex="0">DevOps</a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="https://developers.redhat.com/topics/serverless-architecture/" title="Build and deliver functionality with serverless architecture using Back-end as a Service and Function as a Service."  tabindex="0">Serverless</a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="https://developers.redhat.com/topics/linux/" title="Enterprise Linux Tutorials &amp; Training" data-drupal-link-system-path="node/204685" tabindex="0">Linux</a>
+                            </li>
+
+                            <li class="menu-item">
+                                <a href="https://developers.redhat.com/topics/enterprise-java/" title="Java enterprise scale" data-drupal-link-system-path="node/205245" tabindex="0">Java</a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="https://developers.redhat.com/topics/spring-boot/" title="Building Spring Boot microservices on Kubernetes."  data-drupal-link-system-path="node/206645" tabindex="0">Spring Boot</a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="https://developers.redhat.com/topics/containers/" title="Building containerized applications"  data-drupal-link-system-path="node/206625" tabindex="0">Containers</a>
+                            </li>
+                            <li class="rhd-nav-all-topics">
+                                <a href="https://developers.redhat.com/topics" tabindex="-1">All Topics<span class="icon"><svg class="svg-inline--fa fa-caret-right fa-w-6" aria-hidden="true" data-prefix="fas" data-icon="caret-right" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 512" data-fa-i2svg=""><path fill="currentColor" d="M0 384.662V127.338c0-17.818 21.543-26.741 34.142-14.142l128.662 128.662c7.81 7.81 7.81 20.474 0 28.284L34.142 398.804C21.543 411.404 0 402.48 0 384.662z"></path></svg></span></a>
+                            </li>
+                        </ul>
+
+                        <button class="previous-arrow slider-arrow" ><svg class="svg-inline--fa fa-chevron-left fa-w-8" aria-hidden="true" data-prefix="far" data-icon="chevron-left" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512" data-fa-i2svg=""><path fill="currentColor" d="M231.293 473.899l19.799-19.799c4.686-4.686 4.686-12.284 0-16.971L70.393 256 251.092 74.87c4.686-4.686 4.686-12.284 0-16.971L231.293 38.1c-4.686-4.686-12.284-4.686-16.971 0L4.908 247.515c-4.686 4.686-4.686 12.284 0 16.971L214.322 473.9c4.687 4.686 12.285 4.686 16.971-.001z"></path></svg></button>
+                        <button class="next-arrow slider-arrow"     ><svg class="svg-inline--fa fa-chevron-right fa-w-8" aria-hidden="true" data-prefix="far" data-icon="chevron-right" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512" data-fa-i2svg=""><path fill="currentColor" d="M24.707 38.101L4.908 57.899c-4.686 4.686-4.686 12.284 0 16.971L185.607 256 4.908 437.13c-4.686 4.686-4.686 12.284 0 16.971L24.707 473.9c4.686 4.686 12.284 4.686 16.971 0l209.414-209.414c4.686-4.686 4.686-12.284 0-16.971L41.678 38.101c-4.687-4.687-12.285-4.687-16.971 0z"></path></svg></button>
+
+                        <div class="rhd-nav-all-topics"><a href="https://developers.redhat.com/topics">All Topics<span class="icon"><svg class="svg-inline--fa fa-caret-right fa-w-6" aria-hidden="true" data-prefix="fas" data-icon="caret-right" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 512" data-fa-i2svg=""><path fill="currentColor" d="M0 384.662V127.338c0-17.818 21.543-26.741 34.142-14.142l128.662 128.662c7.81 7.81 7.81 20.474 0 28.284L34.142 398.804C21.543 411.404 0 402.48 0 384.662z"></path></svg></span></a></div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+<div class="rhd-mobile-overlay"></div>
+<div class="rhd-search-toggle-overlay"></div>
+
+<div class="container title-container">
+    <div class="region region-title">
+        <div id="block-rhdp-page-title" data-block-plugin-id="page_title_block" class="block block-core block-page-title-block">
+
+                            <h3 class="page-title general-title">
+                    Blog Articles
+                    <!-- <span></span>-->
+                </h3>
+
+                        </div>
+    </div>
+</div>
+
+<div id="page" class="hfeed site">
+
+    
+    <div id="content" class="site-content ">
+        <div class="container">
+            <div class="row">	<div id="primary" class="content-area large-14 small-24  medium-24 columns">
+		<main id="main" class="site-main" role="main">
+
+		
+			
+<article id="post-441264" class="post-441264 post type-post status-publish format-standard has-post-thumbnail hentry category-ci-cd category-community category-java category-microservices category-modern-app-dev tag-cdi tag-jax-rs tag-json-p tag-jwt-auth tag-microprofile tag-microservices tag-openapi tag-opentracing tag-thorntail tag-wildfly-swarm">
+    <div class="entry-content standard-post">
+		<h1>MicroProfile Status in Version 1.3</h1>        <div class="entry-meta">
+
+            <div class="row entry-meta-row">
+                <div class=" columns  small-24 author-post-info">
+                    <div class="posted-on"><div class="avatar-outer"><img class="avatar" src="https://developers.redhat.com/blog/wp-content/uploads/2018/02/cdi_guru-150x150.jpg" alt="asdurand" /></div>By <a title="Antoine Sabot-Durand" href="https://developers.redhat.com/blog/author/asdurand/">Antoine Sabot-Durand</a> <time class="entry-date published" datetime="2018-05-07T07:00:07-04:00">May 7, 2018</time><time class="updated" datetime="2018-10-17T13:38:42-04:00">October 17, 2018</time></div>                </div>
+            </div>
+        </div><!-- .entry-meta -->
+        
+        <img width="714" height="252" src="https://developers.redhat.com/blog/wp-content/uploads/2017/11/microprofile-logo.png" class="single-post-featured-img wp-post-image" alt="MicroProfile Status in Version 1.3" srcset="https://developers.redhat.com/blog/wp-content/uploads/2017/11/microprofile-logo.png 714w, https://developers.redhat.com/blog/wp-content/uploads/2017/11/microprofile-logo-300x106.png 300w" sizes="(max-width: 714px) 100vw, 714px" />
+        
+
+		<p>Launched nearly two years ago, the Eclipse MicroProfile project is moving fast with four releases and eight subspecs having at least two implementations each. Because it’s a fast moving target, this post tries to give an overview of MicroProfile 1.3, which was released on September 30th, and helps you to get started with the specification.</p>
+<p><span id="more-441264"></span></p>
+<h2 id="what-is-microprofile">What Is MicroProfile ?</h2>
+<p>Before you started reading this post, you probably had an idea of what MicroProfile is. But to make things clearer, I’ll quote the microprofile.io website definition below:</p>
+<p>“The MicroProfile is a baseline platform definition that optimizes Enterprise Java for a microservices architecture and delivers application portability across multiple MicroProfile runtimes. The initially planned baseline is JAX-RS CDI JSON-P, with the intent of community having an active role in the MicroProfile definition and roadmap.”</p>
+<p>In other words, MicroProfile is a platform that leverages JAX-RS, CDI, and JSON-P (and possibly other specifications in the future) to easily produce microservices.</p>
+<p>On top of these three well-known Java EE (or Jakarta EE) specifications, MicroProfile adds its own layer to provide value-added features for microservices (but also for any Java EE application).</p>
+<p>MicroProfile is an Eclipse Foundation project, making it totally vendor-neutral.</p>
+<div class="category-promo-section general-promo">
+    <div class="container">
+        <div class="row">
+            <div class="columns  small-24 promo-image sm-display">
+                <a href="http://developers.redhat.com/register?intcmp=701f2000001ODrzAAG" title="Everything you need to grow your career.">
+                   <img src="https://developers.redhat.com/blog/wp-content/themes/rhd-frontend-blog-theme/inc/promos/images/bookshelf-mixed-v2.png" title="Everything you need to grow your career." />
+                </a>
+            </div>
+            <div class="columns small-24 medium-14 large-14">
+                <h4>Everything you need to grow your career.</h4>                <p>With your free Red Hat Developer program membership, unlock our library of cheat sheets and ebooks on next-generation application development.</p>
+                <a href="http://developers.redhat.com/register?intcmp=701f2000001ODrzAAG" class="button special-offer-bar-button" title="Everything you need to grow your career.">SIGN UP</a>
+            </div>
+            <div class="columns  large-10 medium-10 small-24 promo-image lg-display ">
+                <a href="http://developers.redhat.com/register?intcmp=701f2000001ODrzAAG" title="Everything you need to grow your career.">
+                    <img class="no-top-margin general-promo-image" src="https://developers.redhat.com/blog/wp-content/themes/rhd-frontend-blog-theme/inc/promos/images/bookshelf-mixed-v2.png" title="Everything you need to grow your career." />
+                </a>
+            </div>
+        </div>
+    </div>
+</div><h2 id="vendors-and-projects-supporting-microprofile">Vendors and Projects Supporting MicroProfile</h2>
+<p>MicroProfile has tremendous momentum and wide adoption by vendors. The main products and projects that implement it are:</p>
+<ul>
+<li>WildFly Swarm by Red Hat</li>
+<li>Open Liberty by IBM</li>
+<li>Apache TomEE</li>
+<li>Payara Micro</li>
+<li>Apache Hammock</li>
+<li>KumuluzEE</li>
+</ul>
+<p>The list is not exhaustive and is growing with each MicroProfile version.</p>
+<h2 id="what-s-included">What’s Included?</h2>
+<p>In 1.3 version, the MicroProfile specifications include the following:</p>
+<ul>
+<li>Config 1.2 (updated from previous version)</li>
+<li>Fault Tolerance 1.0</li>
+<li>Health Check 1.0</li>
+<li>Metrics 1.1 (updated from previous version)</li>
+<li>JWT Auth 1.0</li>
+<li>MicroProfile OpenAPI 1.0 (new specification)</li>
+<li>MicroProfile OpenTracing 1.0 (new specification)</li>
+<li>MicroProfile Rest Client 1.0 (new specification)</li>
+</ul>
+<p>Let’s take a quick look at each of those.</p>
+<h3 id="umbrella-specification">Umbrella Specification</h3>
+<p>The MicroProfile umbrella spec defines minimum version for JDK, CDI, JAX-RS, and JSON-P for MicroProfile. Right now, these versions are aligned on Java EE 7, but implementers can choose to use a later version if they wish.</p>
+<p>This specification could be wrongly assumed to be a bill of material in a Maven POM file. In fact, it goes beyond that. Community members agreed on three important points that make the spec shine even more:</p>
+<ol class="arabic">
+<li>Consistency for doc tools: While the spec is not forcing subspecs to do so, every MicroProfile contributor agreed on using the Asciidoc format and the Asciidoctor tool chain to produce documentation.</li>
+<li>Consistency for tools in TCKs: A Technology Compatibility Kit is a very important part of a specification; it helps implementers to validate their code against a test collection designing a “living” contract to respect the spec. As was done for documentation, an agreement was reached to use TestNG and Arquillian to produce TCKs for all MicroProfile specs.</li>
+<li>CDI-centric approach: Again, this is not a written rule but an implicit guideline to make sure that the CDI programming model is present in all MicroProfile subspecs to provide a consistent user experience for MicroProfile users.</li>
+</ol>
+<p>Points 1 and 2 are important to make contributors&#8217; lives easier for and implementers. As a contributor, when switching from one spec to another, I won’t have to learn another way to write docs and tests. This consistency is a way to empower contribution coming from the community.</p>
+<p>Point 3 is a way to make adoption easier. Having a consistent way to consume features and develop makes the learning curve smaller and allows teams to focus on their business part instead of on technical stuff. Besides, as CDI spec lead, I can approve only CDI programming model adoption for MicroProfile.</p>
+<p>The MicroProfile umbrella spec&#8217;s links:</p>
+<ul>
+<li>The spec documentation&#8217;s <a href="https://github.com/eclipse/microprofile-bom/releases/download/1.3/microprofile-spec-1.3.pdf" target="_blank" rel="noopener">PDF</a> file</li>
+<li>Source code on <a href="https://github.com/eclipse/microprofile-bom" target="_blank" rel="noopener">GitHub</a></li>
+</ul>
+<p>The spec&#8217;s Maven artifact:</p>
+<pre class="brush: xml; title: ; notranslate" title="">
+&lt;dependency&gt;
+    &lt;groupId&gt;org.eclipse.microprofile&lt;/groupId&gt;
+    &lt;artifactId&gt;microprofile&lt;/artifactId&gt;
+    &lt;version&gt;1.3&lt;/version&gt;
+    &lt;type&gt;pom&lt;/type&gt;
+    &lt;scope&gt;provided&lt;/scope&gt;
+&lt;/dependency&gt;
+</pre>
+<h3 id="microprofile-config-specification-1-1">MicroProfile Config Specification 1.2</h3>
+<p>MicroProfile Config is used by all other specs to provide a consistent way to read configuration information from various sources. While it provides CDI support, this spec allows accessing configurations without using CDI. It is inspired by project such as Apache DeltaSpike and Apache Tamaya.</p>
+<p>The MicroProfile Config spec&#8217;s links:</p>
+<ul>
+<li>The spec documentation&#8217;s <a href="https://github.com/eclipse/microprofile-config/releases/download/1.2/microprofile-config-spec-1.2.pdf" target="_blank" rel="noopener">PDF</a> file</li>
+<li>Source code on <a href="https://github.com/eclipse/microprofile-config" target="_blank" rel="noopener">GitHub</a></li>
+</ul>
+<p>The spec&#8217;s Maven artifact:</p>
+<pre class="brush: xml; title: ; notranslate" title="">
+&lt;dependency&gt;
+    &lt;groupId&gt;org.eclipse.microprofile.config&lt;/groupId&gt;
+    &lt;artifactId&gt;microprofile-config-api&lt;/artifactId&gt;
+    &lt;version&gt;1.2&lt;/version&gt;
+&lt;/dependency&gt;
+</pre>
+<h3 id="microprofile-fault-tolerance-1-0">MicroProfile Fault Tolerance 1.0</h3>
+<p>This spec allow developers to add a fault tolerance mechanism to microservices with the Circuit Breaker and Bulkhead patterns, asynchronous operations, and Retry or Fallback policies.<br />
+Version 1.0 is fully CDI-oriented by providing interceptor binding to apply these policies to a chosen method or class.</p>
+<p>The MicroProfile Fault Tolerance spec&#8217;s links:</p>
+<ul>
+<li>The spec documentation&#8217;s <a href="https://github.com/eclipse/microprofile-fault-tolerance/releases/download/1.0/microprofile-fault-tolerance-spec-1.0.pdf" target="_blank" rel="noopener">PDF</a> file</li>
+<li>Source code on <a href="https://github.com/eclipse/microprofile-fault-tolerance" target="_blank" rel="noopener">GitHub</a></li>
+</ul>
+<p>The spec&#8217;s Maven artifact:</p>
+<pre class="brush: xml; title: ; notranslate" title="">
+&lt;dependency&gt;
+    &lt;groupId&gt;org.eclipse.microprofile.fault-tolerance&lt;/groupId&gt;
+    &lt;artifactId&gt;microprofile-fault-tolerance-api&lt;/artifactId&gt;
+    &lt;version&gt;1.0&lt;/version&gt;
+&lt;/dependency&gt;
+</pre>
+<h3 id="microprofile-health-check-1-0">MicroProfile Health Check 1.0</h3>
+<p>This spec provides a way to probe the state of a computing node from another machine. This spec is not designed to be used by human operators but by automated systems in a cloud infrastructure to decide if a given computing node should be discarded or replaced by another node.</p>
+<p>The MicroProfile Health Check spec&#8217;s links:</p>
+<ul>
+<li>The spec documentation&#8217;s <a href="https://github.com/eclipse/microprofile-health/files/1312316/microprofile-health-spec-1.0.pdf" target="_blank" rel="noopener">PDF</a> file</li>
+<li>Source code on <a href="https://github.com/eclipse/microprofile-health" target="_blank" rel="noopener">GitHub</a></li>
+</ul>
+<p>The spec&#8217;s Maven artifact:</p>
+<pre class="brush: xml; title: ; notranslate" title="">
+&lt;dependency&gt;
+    &lt;groupId&gt;org.eclipse.microprofile.health&lt;/groupId&gt;
+    &lt;artifactId&gt;microprofile-health-api&lt;/artifactId&gt;
+    &lt;version&gt;1.0&lt;/version&gt;
+&lt;/dependency&gt;
+</pre>
+<h3 id="microprofile-metrics-1-0">MicroProfile Metrics 1.1</h3>
+<p>This specification provides a unified way for microservices developed with MicroProfile to expose monitoring data to management agents. As with the other specifications, it is not limited to MicroProfile and can also be used in any Java development to expose telemetry data.</p>
+<p>The MicroProfile Metrics spec&#8217;s links:</p>
+<ul>
+<li>The spec documentation&#8217;s <a href="https://github.com/eclipse/microprofile-metrics/releases/download/1.1/metrics_spec-1-1.pdf" target="_blank" rel="noopener">PDF</a> file</li>
+<li>Source code on <a href="https://github.com/eclipse/microprofile-metrics" target="_blank" rel="noopener">GitHub</a></li>
+</ul>
+<p>The spec&#8217;s Maven artifact:</p>
+<pre class="brush: xml; title: ; notranslate" title="">
+&lt;dependency&gt;
+    &lt;groupId&gt;org.eclipse.microprofile.metrics&lt;/groupId&gt;
+    &lt;artifactId&gt;microprofile-metrics-api&lt;/artifactId&gt;
+    &lt;version&gt;1.1&lt;/version&gt;
+&lt;/dependency&gt;
+</pre>
+<h3 id="microprofile-jwt-auth-1-0">MicroProfile JWT Auth 1.0</h3>
+<p>This MicroProfile subspec adds security to developed microservices. By using JSON Web Token (JWT) propagation, it helps keep security information across different services using a RESTful approach.</p>
+<p>The MicroProfile JWT Auth spec&#8217;s links:</p>
+<ul>
+<li>The spec documentation&#8217;s <a href="https://github.com/eclipse/microprofile-jwt-auth/files/1305001/microprofile-jwt-auth-spec-1.0.pdf" target="_blank" rel="noopener">PDF</a> file</li>
+<li>Source code on <a href="https://github.com/eclipse/microprofile-jwt-auth" target="_blank" rel="noopener">GitHub</a></li>
+</ul>
+<p>The spec&#8217;s Maven artifact:</p>
+<pre class="brush: xml; title: ; notranslate" title="">
+&lt;dependency&gt;
+    &lt;groupId&gt;org.eclipse.microprofile.jwt&lt;/groupId&gt;
+    &lt;artifactId&gt;microprofile-jwt-auth-api&lt;/artifactId&gt;
+    &lt;version&gt;1.0&lt;/version&gt;
+&lt;/dependency&gt;
+</pre>
+<h3>MicroProfile OpenAPI 1.0</h3>
+<p>This MicroProfile specification aims at providing a unified Java API for the <a href="https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.0.md" target="_blank" rel="noopener">OpenAPI v3 specification</a> that all application developers can use to expose their API documentation.</p>
+<p>The OpenAPI Specification (OAS) defines a standard, language-agnostic interface to RESTful APIs that allows both humans and computers to discover and understand the capabilities of the service without access to source code or documentation or through network traffic inspection.</p>
+<p>The MicroProfile OpenAPI spec&#8217;s links:</p>
+<ul>
+<li>The spec documentation&#8217;s <a href="http://download.eclipse.org/microprofile/microprofile-open-api-1.0/microprofile-openapi-spec.pdf" target="_blank" rel="noopener">PDF</a> file</li>
+<li>Source code on <a href="https://github.com/eclipse/microprofile-open-api" target="_blank" rel="noopener">GitHub</a></li>
+</ul>
+<p>The spec&#8217;s Maven artifact:</p>
+<pre class="brush: xml; title: ; notranslate" title="">
+&lt;dependency&gt;
+    &lt;groupId&gt;org.eclipse.microprofile.openapi&lt;/groupId&gt;
+    &lt;artifactId&gt;microprofile-openapi-api&lt;/artifactId&gt;
+    &lt;version&gt;1.0&lt;/version&gt;
+&lt;/dependency&gt;
+</pre>
+<h3>MicroProfile OpenTracing 1.0</h3>
+<p>This MicroProfile specification defines behaviors and an API for accessing an OpenTracing-compliant Tracer object within your JAX-RS application. The behaviors specify how incoming and outgoing requests will have OpenTracing Spans automatically created. The API defines how to explicitly access a configured Tracer object.</p>
+<p>The MicroProfile OpenTracing spec&#8217;s links:</p>
+<ul>
+<li>The spec documentation&#8217;s <a href="https://github.com/eclipse/microprofile-opentracing/releases/download/1.0/microprofile-opentracing.pdf" target="_blank" rel="noopener">PDF</a> file</li>
+<li>Source code on <a href="https://github.com/eclipse/microprofile-opentracing" target="_blank" rel="noopener">GitHub</a></li>
+</ul>
+<p>The spec&#8217;s Maven artifact:</p>
+<pre class="brush: xml; title: ; notranslate" title="">
+&lt;dependency&gt;
+    &lt;groupId&gt;org.eclipse.microprofile.opentracing&lt;/groupId&gt;
+    &lt;artifactId&gt;microprofile-opentracing-api&lt;/artifactId&gt;
+    &lt;version&gt;1.0&lt;/version&gt;
+&lt;/dependency&gt;
+</pre>
+<h3>MicroProfile Rest Client 1.0</h3>
+<p>This MicroProfile spec provides a type-safe approach to invoke RESTful services over HTTP. As much as possible, the MicroProfile Rest Client spec attempts to use JAX-RS 2.0 APIs for consistency and easier re-use.</p>
+<p>The MicroProfile Rest Client spec&#8217;s links:</p>
+<ul>
+<li>The spec documentation&#8217;s <a href="http://download.eclipse.org/microprofile/microprofile-rest-client-1.0/microprofile-rest-client.pdf" target="_blank" rel="noopener">PDF</a> file</li>
+<li>Source code on <a href="https://github.com/eclipse/microprofile-rest-client" target="_blank" rel="noopener">GitHub</a></li>
+</ul>
+<p>The spec&#8217;s Maven artifact:</p>
+<pre class="brush: xml; title: ; notranslate" title="">
+&lt;dependency&gt;
+ &lt;groupId&gt;org.eclipse.microprofile.rest.client&lt;/groupId&gt;
+ &lt;artifactId&gt;microprofile-rest-client-api&lt;/artifactId&gt;
+ &lt;version&gt;1.0&lt;/version&gt;
+&lt;/dependency&gt;
+</pre>
+<h3 id="conclusion">Conclusion</h3>
+<p>If you want to learn more about MicroProfile, keep an eye on the <a href="http://microprofile.io" target="_blank" rel="noopener">microprofile.io</a> website or on the <a href="https://projects.eclipse.org/projects/technology.microprofile" target="_blank" rel="noopener">MicroProfile section</a> of the Eclipse website. You may also want to follow <a href="https://twitter.com/microprofileio" target="_blank" rel="noopener">@MicropPofileIO</a> on Twitter.</p>
+<p>If you want to contribute to the spec or to one of the implementations, <a href="http://microprofile.io" target="_blank" rel="noopener">microprofile.io</a> is the best place to find information and get started. Subscribing to the <a href="https://groups.google.com/forum/#!forum/microprofile">MicroProfile Google group</a> will probably your first step.</p>
+<div class="rh-category-template-div">
+<div class="row-fluid">
+<div class="small-24">
+<p><a href="https://developers.redhat.com/?sc_cid=7013a000002Cv4OAAS">Join Red Hat Developer</a> and get access to handy <a href="https://developers.redhat.com/cheat-sheets/?sc_cid=7013a000002Cv4OAAS">cheat sheets</a>, <a href="https://developers.redhat.com/ebooks/?sc_cid=7013a000002Cv4OAAS">free books</a>, and product <a href="https://developers.redhat.com/downloads/?sc_cid=7013a000002Cv4OAAS">downloads</a>.</p>
+</div>
+</div>
+<div class="row rh-cat-template-link-div"></div>
+</div>
+<div class="rh-category-template-div">
+<div class="row-fluid">
+<div class="small-24">
+<p>To learn more, visit our <a href="https://developers.redhat.com/topics/containers/?sc_cid=7013a000002Cv4JAAS">Linux containers</a> or <a href="https://developers.redhat.com/topics/microservices/?sc_cid=7013a000002Cv4JAAS">microservices</a> pages.</p>
+<p><a href="https://developers.redhat.com/?sc_cid=7013a000002Cv4JAAS">Join Red Hat Developer</a> and get access to handy <a href="https://developers.redhat.com/cheat-sheets/?sc_cid=7013a000002Cv4JAAS">cheat sheets</a>, <a href="https://developers.redhat.com/ebooks/?sc_cid=7013a000002Cv4JAAS">free books</a>, and product <a href="https://developers.redhat.com/downloads/?sc_cid=7013a000002Cv4JAAS">downloads</a> that can help you with your microservices and container application development.</p>
+</div>
+</div>
+<div class="row rh-cat-template-link-div"></div>
+</div>
+
+<div id='jp-relatedposts' class='jp-relatedposts' >
+	<h3 class="jp-relatedposts-headline"><em>Related</em></h3>
+</div><div class="addtoany_share_save_container addtoany_content addtoany_content_bottom"><div class="a2a_kit a2a_kit_size_16 addtoany_list" data-a2a-url="https://developers.redhat.com/blog/2018/05/07/microprofile-status-version-1-3/" data-a2a-title="MicroProfile Status in Version 1.3"><a class="a2a_button_facebook" href="https://www.addtoany.com/add_to/facebook?linkurl=https%3A%2F%2Fdevelopers.redhat.com%2Fblog%2F2018%2F05%2F07%2Fmicroprofile-status-version-1-3%2F&amp;linkname=MicroProfile%20Status%20in%20Version%201.3" title="Facebook" rel="nofollow noopener" target="_blank"></a><a class="a2a_button_twitter" href="https://www.addtoany.com/add_to/twitter?linkurl=https%3A%2F%2Fdevelopers.redhat.com%2Fblog%2F2018%2F05%2F07%2Fmicroprofile-status-version-1-3%2F&amp;linkname=MicroProfile%20Status%20in%20Version%201.3" title="Twitter" rel="nofollow noopener" target="_blank"></a><a class="a2a_button_linkedin" href="https://www.addtoany.com/add_to/linkedin?linkurl=https%3A%2F%2Fdevelopers.redhat.com%2Fblog%2F2018%2F05%2F07%2Fmicroprofile-status-version-1-3%2F&amp;linkname=MicroProfile%20Status%20in%20Version%201.3" title="LinkedIn" rel="nofollow noopener" target="_blank"></a><a class="a2a_button_email" href="https://www.addtoany.com/add_to/email?linkurl=https%3A%2F%2Fdevelopers.redhat.com%2Fblog%2F2018%2F05%2F07%2Fmicroprofile-status-version-1-3%2F&amp;linkname=MicroProfile%20Status%20in%20Version%201.3" title="Email" rel="nofollow noopener" target="_blank"></a><a class="a2a_button_print" href="https://www.addtoany.com/add_to/print?linkurl=https%3A%2F%2Fdevelopers.redhat.com%2Fblog%2F2018%2F05%2F07%2Fmicroprofile-status-version-1-3%2F&amp;linkname=MicroProfile%20Status%20in%20Version%201.3" title="Print" rel="nofollow noopener" target="_blank"></a><a class="a2a_button_reddit" href="https://www.addtoany.com/add_to/reddit?linkurl=https%3A%2F%2Fdevelopers.redhat.com%2Fblog%2F2018%2F05%2F07%2Fmicroprofile-status-version-1-3%2F&amp;linkname=MicroProfile%20Status%20in%20Version%201.3" title="Reddit" rel="nofollow noopener" target="_blank"></a><a class="a2a_button_flipboard" href="https://www.addtoany.com/add_to/flipboard?linkurl=https%3A%2F%2Fdevelopers.redhat.com%2Fblog%2F2018%2F05%2F07%2Fmicroprofile-status-version-1-3%2F&amp;linkname=MicroProfile%20Status%20in%20Version%201.3" title="Flipboard" rel="nofollow noopener" target="_blank"></a><a class="a2a_dd addtoany_share_save addtoany_share" href="https://www.addtoany.com/share"><img src="https://static.addtoany.com/buttons/favicon.png" alt="Share"></a></div></div>			</div><!-- .entry-content -->
+
+
+
+
+	<footer class="entry-footer">
+		<h3>Categorized In</h3><span class="cat-links"><a href="https://developers.redhat.com/blog/category/ci-cd/" rel="category tag">CI/CD</a>, <a href="https://developers.redhat.com/topics/open-source/" rel="category tag">Community</a>, <a href="https://developers.redhat.com/topics/enterprise-java/" rel="category tag">Java</a>, <a href="https://developers.redhat.com/topics/microservices/" rel="category tag">Microservices</a>, <a href="https://developers.redhat.com/blog/category/modern-app-dev/" rel="category tag">Modern App Dev</a></span><h3>Tags</h3><span class="tags-links"><a href="https://developers.redhat.com/blog/tag/cdi/" rel="tag">CDI</a> <a href="https://developers.redhat.com/blog/tag/jax-rs/" rel="tag">JAX-RS</a> <a href="https://developers.redhat.com/blog/tag/json-p/" rel="tag">JSON-P</a> <a href="https://developers.redhat.com/blog/tag/jwt-auth/" rel="tag">JWT Auth</a> <a href="https://developers.redhat.com/blog/tag/microprofile/" rel="tag">MicroProfile</a> <a href="https://developers.redhat.com/blog/tag/microservices/" rel="tag">microservices</a> <a href="https://developers.redhat.com/blog/tag/openapi/" rel="tag">OpenAPI</a> <a href="https://developers.redhat.com/blog/tag/opentracing/" rel="tag">OpenTracing</a> <a href="https://developers.redhat.com/blog/tag/thorntail/" rel="tag">thorntail</a> <a href="https://developers.redhat.com/blog/tag/wildfly-swarm/" rel="tag">wildfly swarm</a></span>	</footer><!-- .entry-footer -->
+</article><!-- #post-## -->
+			
+<div id="disqus_thread"></div>
+
+
+		
+		</main><!-- #main -->
+	</div><!-- #primary -->
+    
+<div id="secondary" class=" widget-area columns large-8 large-offset-1 medium-24 small-24  " role="complementary">
+	<div class="vert-container">
+        
+			<aside id="recent-posts-2" class="widget widget_recent_entries">		<h3>Recent Posts</h3>		<ul>
+											<li>
+					<a href="https://developers.redhat.com/blog/2019/10/02/apache-camel-language-support-in-codemirror/">Apache Camel Language support in CodeMirror</a>
+									</li>
+											<li>
+					<a href="https://developers.redhat.com/blog/2019/10/01/introduction-to-microservices-observability-with-eclipse-microprofile/">Introduction to microservices observability with Eclipse MicroProfile</a>
+									</li>
+											<li>
+					<a href="https://developers.redhat.com/blog/2019/09/30/sending-a-telegram-with-apache-camel-k-and-visual-studio-code/">Sending a telegram with Apache Camel K and Visual Studio Code</a>
+									</li>
+											<li>
+					<a href="https://developers.redhat.com/blog/2019/09/27/python-wheels-ai-ml-and-abi-compatibility/">Python wheels, AI/ML, and ABI compatibility</a>
+									</li>
+											<li>
+					<a href="https://developers.redhat.com/blog/2019/09/26/devnation-live-bengaluru-dreaming-of-streaming-with-reactive-programming/">DevNation Live Bengaluru: Dreaming of streaming with reactive programming</a>
+									</li>
+											<li>
+					<a href="https://developers.redhat.com/blog/2019/09/25/4-steps-to-set-up-the-mqtt-secure-client-for-red-hat-amq-7-4-on-openshift/">4 steps to set up the MQTT secure client for Red Hat AMQ 7.4 on OpenShift</a>
+									</li>
+											<li>
+					<a href="https://developers.redhat.com/blog/2019/09/24/changes-to-centos-what-centos-stream-means-for-developers/">Changes to CentOS: What CentOS Stream means for developers</a>
+									</li>
+											<li>
+					<a href="https://developers.redhat.com/blog/2019/09/24/devnation-live-bengaluru-kubernetes-serverless-application-architecture/">DevNation Live Bengaluru: Kubernetes serverless application architecture</a>
+									</li>
+											<li>
+					<a href="https://developers.redhat.com/blog/2019/09/23/how-the-new-quarkus-extension-for-visual-studio-code-improves-the-development-experience/">How the new Quarkus extension for Visual Studio Code improves the development experience</a>
+									</li>
+											<li>
+					<a href="https://developers.redhat.com/blog/2019/09/23/devnation-live-event-driven-business-automation-powered-by-cloud-native-java/">Event-driven business automation powered by cloud-native Java</a>
+									</li>
+					</ul>
+		</aside><aside id="top-posts-2" class="widget widget_top-posts"><h3>Top Posts</h3><ul>				<li>
+										<a href="https://developers.redhat.com/blog/2018/11/29/managing-containerized-system-services-with-podman/" class="bump-view" data-bump-view="tp">
+						Managing containerized system services with Podman					</a>
+										</li>
+								<li>
+										<a href="https://developers.redhat.com/blog/2019/09/23/how-the-new-quarkus-extension-for-visual-studio-code-improves-the-development-experience/" class="bump-view" data-bump-view="tp">
+						How the new Quarkus extension for Visual Studio Code improves the development experience					</a>
+										</li>
+								<li>
+										<a href="https://developers.redhat.com/blog/2019/08/12/efficient-string-copying-and-concatenation-in-c/" class="bump-view" data-bump-view="tp">
+						Efficient string copying and concatenation in C					</a>
+										</li>
+								<li>
+										<a href="https://developers.redhat.com/blog/2019/09/05/why-java-is-so-hot-right-now/" class="bump-view" data-bump-view="tp">
+						Why Java is so hot right now					</a>
+										</li>
+								<li>
+										<a href="https://developers.redhat.com/blog/2019/09/05/red-hat-openshift-4-on-your-laptop-introducing-red-hat-codeready-containers/" class="bump-view" data-bump-view="tp">
+						Red Hat OpenShift 4 on your laptop: Introducing Red Hat CodeReady Containers					</a>
+										</li>
+				</ul></aside>
+
+          <aside class="widget rss-widget">
+        <h3>Feeds</h3>
+
+
+
+        <div class="rss-feed-sidebar-links"><a href="https://developers.redhat.com/blog/feed/rss/">RSS</a><a href="https://developers.redhat.com/blog/feed/atom/">ATOM</a></div>
+
+
+          </aside>
+    <aside id="login_to_admin_button" class="widget login-to-admin">
+
+
+
+        <a class="login-to-admin-btn" href="https://developers.redhat.com/blog/wp-admin/">Login to admin your blog</a>
+    </aside>
+	</div>
+</div><!-- #secondary -->			</div><!-- .row -->
+		</div><!-- .container.main-body-container -->
+	</div><!-- #content -->
+</div><!-- #page -->
+<!-- </div>/ .site-wrapper -->
+<footer role="contentinfo">
+    <div class="region region-rhd-footer">
+        <div id="block-rhdfooter" data-block-plugin-id="system_menu_block:rhd-footer" class="rhd-footer">
+            <nav class="rhd-footer-nav" aria-label="Secondary Navigation" role="navigation">
+
+                <ul class="rhd-menu">
+                    <li class="menu-item menu-item--expanded">
+                        <h3 class="section-toggle">Featured Topics</h3>
+                        <ul class="rhd-menu">
+                            <li class="menu-item">
+                                <a href="https://developers.redhat.com/topics/service-mesh/" title="Istio coordinates microservices on Kubernetes in a service mesh with the powerful monitoring and management tool." data-drupal-link-system-path="node/204655" tabindex="0">Istio</a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="https://developers.redhat.com/topics/kubernetes/" title="Learn how Kubernetes, a powerful open-source tool, helps you manage components across containers in any environment." data-drupal-link-system-path="node/204675" tabindex="-1">Kubernetes</a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="https://developers.redhat.com/topics/microservices/" title="Microservices and microservice architecture is the new standard approach to building applications as independent services." data-drupal-link-system-path="node/204665" tabindex="-1">Microservices</a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="https://developers.redhat.com/topics/devops/" title="DevOps involves the combination of cultural change, process automation, and tools to improve your time-to-market." data-drupal-link-system-path="node/204635" tabindex="0">DevOps</a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="https://developers.redhat.com/topics/serverless-architecture/" title="Build and deliver functionality with serverless architecture using Back-end as a Service and Function as a Service."  tabindex="0">Serverless</a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="https://developers.redhat.com/topics/linux/" title="Enterprise Linux Tutorials &amp; Training" data-drupal-link-system-path="node/204685" tabindex="0">Linux</a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="https://developers.redhat.com/topics/enterprise-java/" title="Java enterprise scale" data-drupal-link-system-path="node/205245" tabindex="0">Enterprise Java</a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="https://developers.redhat.com/topics/spring-boot/" title="Spring Boot deployment on Kubernetes."  data-drupal-link-system-path="node/206645" tabindex="0">Spring Boot</a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="https://developers.redhat.com/topics/containers/" title="Building containerized applications."  data-drupal-link-system-path="node/206625" tabindex="0">Containers</a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="https://developers.redhat.com/topics/knative/" title="Kubernetes platform used to build, deploy, and manage serverless workloads."  data-drupal-link-system-path="node/206365" tabindex="0">Knative</a>
+                            </li>
+                      </ul>
+                    </li>
+                    <li class="menu-item menu-item--expanded">
+                        <h3 class="section-toggle">Build</h3>
+                        <ul class="rhd-menu">
+                            <li class="menu-item">
+                                <a href="https://developers.redhat.com/getting-started/">Getting Started Center</a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="https://developers.redhat.com/tools/">Developer Tools</a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="https://che.openshift.io/" title="Eclipse Che is a developer workspace server and cloud IDE built for teams and organizations.">Hosted Che IDE</a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="https://developers.redhat.com/courses/" title="Interactive OpenShift courses" data-drupal-link-system-path="node/208825">Interactive Tutorials</a>
+                            </li>
+                           <li class="menu-item">
+                                <a href="https://access.redhat.com/containers/" title="Red Hat's secure, certified, and up-to-date catalog of container images and operators">Container Catalog</a>
+                            </li>
+                           <li class="menu-item">
+                                <a href="https://operatorhub.io" target="_blank" title="A public directory of Kubernetes-native services.">Kubernetes Services</a>
+                            </li>
+                           <li class="menu-item">
+                                <a href="https://connect.redhat.com" target="_blank" title="Certify applications at Red Hat Technology Partner Connect">Certify Applications</a>
+                            </li>
+                           <li class="menu-item">
+                                <a href="https://redhatofficial.github.io" title="A directory of open source projects Red Hat contributes to on Github">Red Hat on Github</a>
+                            </li>
+                        </ul>
+                    </li>
+
+
+
+                    <li class="menu-item menu-item--expanded">
+                        <h3 class="section-toggle">Quicklinks</h3>
+                        <ul class="rhd-menu">
+                            <li class="menu-item">
+                                <a href="https://developers.redhat.com/new/" title="New articles at Red Hat Developer" data-drupal-link-system-path="node/212005">What's new</a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="https://developers.redhat.com/devnation/" title="DevNation Tech Talks and Webinars" data-drupal-link-system-path="node/206785">DevNation Tech Talks</a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="https://developers.redhat.com/events/" title="Upcoming Live and Virtual Events for Software Developers" data-drupal-link-system-path="node/204435">Upcoming Events</a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="https://developers.redhat.com/ebooks/">Books</a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="https://developers.redhat.com/cheatsheets/">Cheat Sheets</a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="https://developers.redhat.com/search/?s=most-recent&amp;f=type~video" title="Video Tutorials, Webinars, and Demos">Videos</a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="https://developers.redhat.com/products/" title="Red Hat software downloads for developers" data-drupal-link-system-path="node/204465">Products</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="menu-item menu-item--expanded">
+                        <h3 class="section-toggle">Communicate</h3>
+                        <ul class="rhd-menu">
+                            <li class="menu-item">
+                                <a href="https://status.redhat.com" target="_blank" title="Red Hat Site Status Dashboard">Site Status Dashboard</a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="#" class="report-an-issue" id="rhdCustomTrigger" data-drupal-link-system-path="<front>">Report a website issue</a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="https://access.redhat.com/security/team/contact/" target="_blank">Report a security problem</a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="https://developers.redhat.com/about/" data-drupal-link-system-path="node/204885">About us</a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="https://developers.redhat.com/contact-sales/" data-drupal-link-system-path="node/208445">Contact Sales</a>
+                            </li>
+                        </ul>
+
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="rhd-footer-sidebar">
+                <p class="rhd-footer-sidebar-title">Red Hat Developer</p>
+                <p class="rhd-footer-sidebar-subtitle">Build here. Go anywhere.</p>
+                <p class="rhd-footer-sidebar-content">We serve the builders. The problem solvers who create careers with code.</p>
+                <p class="rhd-footer-sidebar-content">Join us if you’re a developer, software engineer, web designer, front-end designer, UX designer, computer scientist, architect, tester, product manager, project manager or team lead.</p>
+                <ul class="rhd-footer-sidebar-social">
+                    <li>
+                        <a href="https://www.youtube.com/channel/UC7noUdfWp-ukXUlAsJnSm-Q" target="_blank" rel="noopener noreferrer"><svg class="svg-inline--fa fa-youtube fa-w-18" aria-hidden="true" data-prefix="fab" data-icon="youtube" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" data-fa-i2svg=""><path fill="currentColor" d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"></path></svg><!-- <i class="fab fa-youtube"></i> --></a>
+                    </li>
+                    <li>
+                        <a href="https://www.facebook.com/RedHatDeveloperProgram" target="_blank" rel="noopener noreferrer"><svg class="svg-inline--fa fa-facebook fa-w-14" aria-hidden="true" data-prefix="fab" data-icon="facebook" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M448 56.7v398.5c0 13.7-11.1 24.7-24.7 24.7H309.1V306.5h58.2l8.7-67.6h-67v-43.2c0-19.6 5.4-32.9 33.5-32.9h35.8v-60.5c-6.2-.8-27.4-2.7-52.2-2.7-51.6 0-87 31.5-87 89.4v49.9h-58.4v67.6h58.4V480H24.7C11.1 480 0 468.9 0 455.3V56.7C0 43.1 11.1 32 24.7 32h398.5c13.7 0 24.8 11.1 24.8 24.7z"></path></svg><!-- <i class="fab fa-facebook"> </i> --></a>
+                    </li>
+                    <li>
+                        <a href="https://twitter.com/rhdevelopers" target="_blank" rel="noopener noreferrer"><svg class="svg-inline--fa fa-twitter fa-w-16" aria-hidden="true" data-prefix="fab" data-icon="twitter" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg=""><path fill="currentColor" d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"></path></svg><!-- <i class="fab fa-twitter"> </i> --></a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/redhat-developer" target="_blank" rel="noopener noreferrer"><svg class="svg-inline--fa fa-github fa-w-16" aria-hidden="true" data-prefix="fab" data-icon="github" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512" data-fa-i2svg=""><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg><!-- <i class="fab fa-github"> </i> --></a>
+                    </li>
+                </ul>
+                <a class="rhd-footer-sidebar-signup" href="https://developers.redhat.com/register">Sign me up</a>
+            </div>
+        </div>
+        <div id="block-universalfooter" data-block-plugin-id="system_menu_block:universal-footer" class="rh-universal-footer">
+            <a class="rh-universal-footer-rh-logo" href="https://redhat.com/">
+                <img alt="Red Hat Logo" src="https://developers.redhat.com/themes/custom/rhdp/images/branding/RHLogo_white.svg">
+            </a>
+            <ul class="rh-universal-footer-legal">
+                <li>
+                    <a class="copyright">Copyright © 2018 Red Hat Inc.</a>
+                </li>
+
+                <ul class="rhd-menu">
+                    <li class="menu-item">
+                        <a href="http://www.redhat.com/en/about/privacy-policy" title="Red Hat Privacy Policy">Privacy Statement</a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="http://www.redhat.com/en/about/terms-use" title="Red Hat Terms of Use">Terms of Use</a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="http://www.redhat.com/en/about/all-policies-guidelines" title="Red Hat Policies and Guidelines">All policies and guidelines</a>
+                    </li>
+                </ul>
+            </ul>
+            <a class="rh-universal-footer-summit-logo" href="http://www.redhat.com/summit/" target="_blank" rel="noopener noreferrer">
+                <img src="https://developers.redhat.com/blog/wp-content/themes/rhd-frontend-blog-theme/dist/images/logo-summit.png" alt="Red Hat Summit">
+            </a>
+        </div>
+
+    </div>
+
+</footer><script>jQuery(document).ready(function ($) { $('p').selectionSharer();});</script><div class="gdpr gdpr-overlay"></div>
+<div class="gdpr gdpr-privacy-preferences">
+	<div class="gdpr-wrapper">
+		<form method="post" class="gdpr-privacy-preferences-frm">
+			<input type="hidden" name="action" value="gdpr_update_privacy_preferences">
+			<input type="hidden" id="update-privacy-preferences-nonce" name="update-privacy-preferences-nonce" value="a387ffc319" /><input type="hidden" name="_wp_http_referer" value="/blog/2018/05/07/microprofile-status-version-1-3/" />			<header>
+				<div class="gdpr-box-title">
+					<h3>Privacy Preference Center</h3>
+					<span class="gdpr-close"></span>
+				</div>
+			</header>
+			<div class="gdpr-mobile-menu">
+				<button type="button">Options</button>
+			</div>
+			<div class="gdpr-content">
+				<div class="gdpr-tabs">
+					<ul class="">
+						<li><button type="button" class="gdpr-tab-button gdpr-active" data-target="gdpr-consent-management">Consent Management</button></li>
+																			<li><button type="button" class="gdpr-tab-button gdpr-cookie-settings" data-target="necessary">Cookie Settings</button>
+								<ul class="gdpr-subtabs">
+									<li><button type="button" data-target="necessary" >Necessary</button></li><li><button type="button" data-target="analytics" >Analytics</button></li><li><button type="button" data-target="other" >Other</button></li>								</ul>
+							</li>
+											</ul>
+					<ul class="gdpr-policies">
+																													<li><a href="https://developers.redhat.com/blog/privacy-policy/" target="_blank">Privacy Policy</a></li>
+																		</ul>
+				</div>
+				<div class="gdpr-tab-content">
+					<div class="gdpr-consent-management gdpr-active">
+						<header>
+							<h4>Consent Management</h4>
+						</header>
+						<div class="gdpr-info">
+							<p>We use cookies on our websites to deliver our online services. Details about how we use cookies and how you may disable them are set out in our Privacy Statement. By using this website you agree to our use of cookies.</p>
+																								<div class="gdpr-cookies-used">
+										<div class="gdpr-cookie-title">
+											<p>Privacy Policy</p>
+																							<span class="gdpr-always-active">Required</span>
+												<input type="hidden" name="user_consents[]" value="privacy-policy" checked style="display:none;">
+																					</div>
+										<div class="gdpr-cookies">
+											<span>We use cookies on our websites to deliver our online services. Details about Red Hat's privacy policy, how we use cookies and how you may disable them are set out in our <a href="https://developers.redhat.com/blog/privacy-policy">Privacy Page</a>. By using this website you agree to our use of cookies.</span>
+										</div>
+									</div>
+																					</div>
+					</div>
+																<div class="necessary">
+							<header>
+								<h4>Necessary</h4>
+							</header><!-- /header -->
+							<div class="gdpr-info">
+								<p>For ensuring site stability and functionality.</p>
+																	<div class="gdpr-cookies-used">
+										<div class="gdpr-cookie-title">
+											<p>Cookies Used</p>
+																																		<span class="gdpr-always-active">Required</span>
+												<input type="hidden" name="approved_cookies[]" value="[&quot;__CT_Data&quot;,&quot;_CT_RS_&quot;,&quot;BIGipServer~prod~rhd-blog-http&quot;,&quot;check&quot;,&quot;dmdbase_cdc&quot;,&quot;gdpr[allowed_cookies]&quot;,&quot;gdpr[consent_types]&quot;,&quot;sat_ppv&quot;,&quot;sat_prevPage&quot;,&quot;WRUID&quot;,&quot;atlassian.xsrf.token&quot;,&quot;JSESSIONID&quot;,&quot;DWRSESSIONID&quot;]">
+																					</div>
+										<div class="gdpr-cookies">
+											<span>__CT_Data, _CT_RS_, BIGipServer~prod~rhd-blog-http, check,dmdbase_cdc, gdpr[allowed_cookies], gdpr[consent_types], sat_ppv,sat_prevPage,WRUID,atlassian.xsrf.token, JSESSIONID, DWRSESSIONID</span>
+										</div>
+									</div>
+																							</div>
+						</div>
+											<div class="analytics">
+							<header>
+								<h4>Analytics</h4>
+							</header><!-- /header -->
+							<div class="gdpr-info">
+								<p>For site visitor traffic analysis</p>
+																																			<div class="gdpr-cookies-used">
+											<div class="gdpr-cookie-title">
+												<p>developers.redhat.com</p>
+												<a href="https://developers.redhat.com/blog/manage-cookies/" target="_blank" class="gdpr-button">Opt Out</a>
+											</div>
+											<div class="gdpr-cookies">
+												<span>_sdsat_eloquaGUID,AMCV_945D02BE532957400A490D4CAdobeOrg, rh_omni_tc, s_sq, mbox, _sdsat_eloquaGUID,rh_elqCustomerGUID</span>
+											</div>
+										</div>
+																								</div>
+						</div>
+											<div class="other">
+							<header>
+								<h4>Other</h4>
+							</header><!-- /header -->
+							<div class="gdpr-info">
+								<p>Disqus is used to facilitate comments on individual blog posts.</p>
+																																			<div class="gdpr-cookies-used">
+											<div class="gdpr-cookie-title">
+												<p>disqus.com</p>
+												<a href="https://developers.redhat.com/blog/manage-cookies/" target="_blank" class="gdpr-button">Opt Out</a>
+											</div>
+											<div class="gdpr-cookies">
+												<span>G_ENABLED_IDPS,NID,__jid,cpSess,disqus_unique,io.narrative.guid.v2,uuid2,vglnk.Agent.p,vglnk.PartnerRfsh.p</span>
+											</div>
+										</div>
+																								</div>
+						</div>
+									</div>
+				<input type="hidden" name="all_cookies" value="[&quot;__CT_Data&quot;,&quot;_CT_RS_&quot;,&quot;BIGipServer~prod~rhd-blog-http&quot;,&quot;check&quot;,&quot;dmdbase_cdc&quot;,&quot;gdpr[allowed_cookies]&quot;,&quot;gdpr[consent_types]&quot;,&quot;sat_ppv&quot;,&quot;sat_prevPage&quot;,&quot;WRUID&quot;,&quot;atlassian.xsrf.token&quot;,&quot;JSESSIONID&quot;,&quot;DWRSESSIONID&quot;]">
+			</div>
+			<footer>
+				<input type="submit" value="Save Preferences">
+			</footer>
+		</form>
+	</div>
+</div>
+
+<div class="gdpr gdpr-general-confirmation">
+	<div class="gdpr-wrapper">
+		<header>
+			<div class="gdpr-box-title">
+				<h3></h3>
+				<span class="gdpr-close"></span>
+			</div>
+		</header>
+		<div class="gdpr-content">
+			<p></p>
+		</div>
+		<footer>
+			<button class="gdpr-ok">OK</button>
+		</footer>
+	</div>
+</div>
+	<div style="display:none">
+	</div>
+<script type='text/javascript' src='https://developers.redhat.com/blog/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shCore.js?ver=3.0.9b'></script>
+<script type='text/javascript' src='https://developers.redhat.com/blog/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushXml.js?ver=3.0.9b'></script>
+<script type='text/javascript'>
+	(function(){
+		var corecss = document.createElement('link');
+		var themecss = document.createElement('link');
+		var corecssurl = "https://developers.redhat.com/blog/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/styles/shCore.css?ver=3.0.9b";
+		if ( corecss.setAttribute ) {
+				corecss.setAttribute( "rel", "stylesheet" );
+				corecss.setAttribute( "type", "text/css" );
+				corecss.setAttribute( "href", corecssurl );
+		} else {
+				corecss.rel = "stylesheet";
+				corecss.href = corecssurl;
+		}
+		document.getElementsByTagName("head")[0].insertBefore( corecss, document.getElementById("syntaxhighlighteranchor") );
+		var themecssurl = "https://developers.redhat.com/blog/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/styles/shThemeDefault.css?ver=3.0.9b";
+		if ( themecss.setAttribute ) {
+				themecss.setAttribute( "rel", "stylesheet" );
+				themecss.setAttribute( "type", "text/css" );
+				themecss.setAttribute( "href", themecssurl );
+		} else {
+				themecss.rel = "stylesheet";
+				themecss.href = themecssurl;
+		}
+		//document.getElementById("syntaxhighlighteranchor").appendChild(themecss);
+		document.getElementsByTagName("head")[0].insertBefore( themecss, document.getElementById("syntaxhighlighteranchor") );
+	})();
+	SyntaxHighlighter.config.strings.expandSource = '+ expand source';
+	SyntaxHighlighter.config.strings.help = '?';
+	SyntaxHighlighter.config.strings.alert = 'SyntaxHighlighter\n\n';
+	SyntaxHighlighter.config.strings.noBrush = 'Can\'t find brush for: ';
+	SyntaxHighlighter.config.strings.brushNotHtmlScript = 'Brush wasn\'t configured for html-script option: ';
+	SyntaxHighlighter.defaults['class-name'] = 'redhat-highlight';
+	SyntaxHighlighter.defaults['pad-line-numbers'] = false;
+	SyntaxHighlighter.defaults['toolbar'] = false;
+	SyntaxHighlighter.all();
+
+	// Infinite scroll support
+	if ( typeof( jQuery ) !== 'undefined' ) {
+		jQuery( function( $ ) {
+			$( document.body ).on( 'post-load', function() {
+				SyntaxHighlighter.highlight();
+			} );
+		} );
+	}
+</script>
+<link rel='stylesheet' id='rhcategory-admin-css'  href='https://developers.redhat.com/blog/wp-content/plugins/rh-category-template-control/css/rh-category.css?ver=1.0' type='text/css' media='all' />
+<script type='text/javascript'>
+/* <![CDATA[ */
+var countVars = {"disqusShortname":"red-hat-developers-blog"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://developers.redhat.com/blog/wp-content/plugins/disqus-comment-system/public/js/comment_count.js?ver=3.0.17'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var embedVars = {"disqusConfig":{"integration":"wordpress 3.0.17"},"disqusIdentifier":"441264 https:\/\/developers.redhat.com\/blog\/?p=441264","disqusShortname":"red-hat-developers-blog","disqusTitle":"MicroProfile Status in Version 1.3","disqusUrl":"https:\/\/developers.redhat.com\/blog\/2018\/05\/07\/microprofile-status-version-1-3\/","postId":"441264"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://developers.redhat.com/blog/wp-content/plugins/disqus-comment-system/public/js/comment_embed.js?ver=3.0.17'></script>
+<script type='text/javascript' src='https://s0.wp.com/wp-content/js/devicepx-jetpack.js?ver=201940'></script>
+<script type='text/javascript' src='https://secure.gravatar.com/js/gprofiles.js?ver=2019Octaa'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var WPGroHo = {"my_hash":""};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://developers.redhat.com/blog/wp-content/plugins/jetpack/modules/wpgroho.js?ver=5.1.2'></script>
+<script type='text/javascript' src='https://developers.redhat.com/auth/js/keycloak.js'></script>
+<script type='text/javascript' src='https://developers.redhat.com/blog/wp-content/themes/rhd-frontend-blog-theme/dist/js/sso.js'></script>
+<script type='text/javascript' src='https://developers.redhat.com/blog/wp-content/themes/rhd-frontend-blog-theme/dist/js/rhdeveloperblog-jquery.js'></script>
+<script type='text/javascript' src='https://developers.redhat.com/blog/wp-content/themes/rhd-frontend-blog-theme/dist/js/slick-direct.js'></script>
+<script type='text/javascript' src='https://issues.jboss.org/s/36fcee7e2c47b82293b8ffd249c9132e-T/-bdgec2/72005/38e4585ff05eb2dd95a30399b8504050/2.0.22/_/download/batch/com.atlassian.jira.collector.plugin.jira-issue-collector-plugin:issuecollector/com.atlassian.jira.collector.plugin.jira-issue-collector-plugin:issuecollector.js?locale=en-UK&#038;collectorId=03f305bd'></script>
+<script type='text/javascript' src='https://developers.redhat.com/blog/wp-content/themes/rhd-frontend-blog-theme/dist/js/custom-jira-collector.js'></script>
+<script type='text/javascript' src='https://developers.redhat.com/blog/wp-content/plugins/wp-featherlight/js/wpFeatherlight.pkgd.min.js?ver=1.3.0'></script>
+<script type='text/javascript' src='https://developers.redhat.com/blog/wp-includes/js/wp-embed.min.js?ver=5.1.2'></script>
+<script type='text/javascript' src='https://developers.redhat.com/blog/wp-content/plugins/selection-sharer/js/selection-sharer.js?ver=0.1'></script>
+<script type='text/javascript' src='https://stats.wp.com/e-201940.js' async='async' defer='defer'></script>
+<script type='text/javascript'>
+	_stq = window._stq || [];
+	_stq.push([ 'view', {v:'ext',j:'1:7.4',blog:'121547928',post:'441264',tz:'-4',srv:'developers.redhat.com'} ]);
+	_stq.push([ 'clickTrackerInit', '121547928', '441264' ]);
+</script>
+
+<!-- End Red Hat Developers JS -->
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"4b57582292","applicationID":"275518784","transactionName":"YgdQMhFUDBFTVU1bDFtNcwUXXA0MHUVQXARZBw==","queueTime":0,"applicationTime":499,"atts":"TkBTRFlOHx8=","errorBeacon":"bam.nr-data.net","agent":""}</script></body>
+</html>
